@@ -1,0 +1,57 @@
+@use '../node_modules/@angular/material' as mat;
+@use '../node_modules/@angular/material/core/theming/palette' as palette;
+$my-palette: mat.$indigo-palette;
+
+@include mat.core();
+
+$my-primary-palette: (
+  50: #eceff1,
+  100: #cfd8dc,
+  200: #b0bec5,
+  300: #90a4ae,
+  400: #78909c,
+  500: #607d8b,
+  600: #546e7a,
+  700: #455a64,
+  800: #37474f,
+  900: #263238,
+  A100: #cfd8dc,
+  A200: #b0bec5,
+  A400: #78909c,
+  A700: #455a64,
+  contrast: (
+    50: palette.$dark-primary-text,
+    100: palette.$dark-primary-text,
+    200: palette.$dark-primary-text,
+    300: palette.$dark-primary-text,
+    400: palette.$light-primary-text,
+    500: palette.$light-primary-text,
+    600: palette.$light-primary-text,
+    700: palette.$light-primary-text,
+    800: palette.$light-primary-text,
+    900: palette.$light-primary-text,
+    A100: palette.$dark-primary-text,
+    A200: palette.$dark-primary-text,
+    A400: palette.$light-primary-text,
+    A700: palette.$light-primary-text,
+  )
+);
+
+$my-primary: mat.define-palette($my-primary-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+    warn: $my-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+@include mat.core-theme($my-theme);
+
+@include mat.button-theme($my-theme);
+@include mat.all-component-themes($my-theme);

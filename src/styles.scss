@@ -1,4 +1,69 @@
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  --light-gray: #e3e0ef;
+  --light-black: #5c5a5b;
+  --gray: #b4b4b4;
+  --light-green: #a59f83;
+  --light-blue: #a19bf2;
+}
+
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field {
+  font-size: 12px;
+  width: 20rem;
+}
+
+.mat-form-field-label {
+  color: #37507ED1 !important;
+}
+
+.mat-form-field-ripple {
+  background-color: #37507ED1 !important;
+}
+
+::-webkit-scrollbar {
+  width: .75em;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(206, 10%, 86%);
+  border-radius: 100vw;
+  margin-block: .25em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #37507ED1;
+  border-radius: 100vw;
+  border: .15em solid #006600FF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #144D44FF;
+}
+
+body {
+  font-family: "Times New Roman", serif;
+  margin: 0;
+  //background-image: url("../image/background_1.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-repeat: no-repeat;;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.page {
+  padding: 40px;
+}
