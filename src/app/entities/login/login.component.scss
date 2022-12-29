@@ -1,0 +1,42 @@
+.login-background {
+  background-image: url('/assets/image/login-background.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-repeat: no-repeat;;
+  background-attachment: fixed;
+  border-radius: 15px;
+  min-height: calc(100vh - 100px);
+  font-size: 1.25rem;
+  color: #37507ED1;
+}
+
+.login-container {
+  height: 100%;
+  align-items: center;
+  opacity: 1!important;
+  border-radius: 5px;
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  padding-top: 5rem;
+}
+
+form {
+  width: 100%;
+}
+
+.login-toolbar {
+  justify-content: center;
+  border-radius: .3rem .3rem 0 0;
+}
+
+button {
+  width: max-content;
+  //background-color: var(--light-blue) !important;
+  padding: 1.5rem 2rem ;
+}
+
+mat-form-field {
+  width: 100%;
+}
