@@ -14,6 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { EntityModule } from './entities/entity.module';
+import { HttpClientModule } from '@angular/common/http';
+import { authInterceptorProviders } from './blocks/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,10 @@ import { EntityModule } from './entities/entity.module';
     AppRoutingModule,
     SharedModule,
     FontAwesomeModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
