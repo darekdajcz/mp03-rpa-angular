@@ -1,5 +1,5 @@
 <div class="h-100 login-background">
-    <form class="w-50 h-100 opacity-100">
+    <form class="w-50 h-100 opacity-100" *ngIf="!isLoggedIn; else loggedIn">
       <div class="login-container">
           <mat-toolbar class="login-toolbar" color="primary">Zaloguj sie do banku</mat-toolbar>
           <mat-card class="p-3">
@@ -20,8 +20,14 @@
               </mat-form-field>
               <button type="submit" mat-raised-button color="primary">ZALOGUJ</button>
             </form>
-            <span style="font-size: 15px">Jeśli nie masz jeszcze konta, zarejestruj się <a routerLink ='/register'>Rejestracja</a></span>
+            <span style="font-size: 15px">Jeśli nie masz jeszcze konta, zarejestruj się <a routerLink='/sign-up'>Rejestracja</a></span>
           </mat-card>
       </div>
     </form>
 </div>
+
+<ng-template #loggedIn>
+  <div style="color: #263238; font-size: 4rem; font-family: 'Calisto MT',serif; text-align: center">
+    ZALOGOWANY
+  </div>
+</ng-template>

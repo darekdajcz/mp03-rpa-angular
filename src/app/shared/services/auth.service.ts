@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SERVER_API_URL } from '../../app.constants';
 import { Observable } from 'rxjs';
+import { User } from '../../entities/login/models/user';
+import { LoginModel } from '../../entities/login/models/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +14,18 @@ export class AuthService {
   constructor(private readonly http: HttpClient) {
   }
 
-  login(credentials: any): Observable<any> {
+  getAllUsers(): Observable<any> {
+    return this.http.get(`${ this.resourceUrl }`);
+  }
+
+  login(credentials: LoginModel): Observable<any> {
     const req = { username: credentials.username, password: credentials.password };
     return this.http.post(`${ this.resourceUrl }/sign-in`, req);
   }
 
-  register(user: any): Observable<any> {
+  register(user: User): Observable<any> {
     const req = {
-      username: user.username,
-      email: user.email,
-      password: user.password
+      username: user.username, email: user.email, password: user.password, role: user.role
     };
     return this.http.post(`${ this.resourceUrl }/sign-up`, req);
   }

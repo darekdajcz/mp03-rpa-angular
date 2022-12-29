@@ -6,8 +6,8 @@
   <button mat-button [matMenuTriggerFor]="menu"><mat-icon class="icon-display">person_pin</mat-icon></button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item (click)="redirectTo('login')">Zaloguj</button>
-    <button mat-menu-item (click)="redirectTo('signup')">Rejestracja</button>
-    <button mat-menu-item>Wyloguj</button>
+    <button mat-menu-item (click)="redirectTo('sign-up')">Rejestracja</button>
+    <button mat-menu-item (click)="logout()">Wyloguj</button>
   </mat-menu>
 </div>
 <mat-sidenav-container>

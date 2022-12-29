@@ -9,7 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 const loginRoute = [{
   path: 'login',
@@ -24,7 +25,7 @@ const loginRoute = [{
   // },
   // canActivate: []
 }, {
-  path: 'signup',
+  path: 'sign-up',
   component: SignupComponent,
   title: 'Rejestracja'
 }
@@ -35,17 +36,18 @@ const loginRoute = [{
     LoginComponent,
     SignupComponent
   ],
-  imports: [
-    RouterModule.forChild(loginRoute),
-    CommonModule,
-    MatToolbarModule,
-    MatCardModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatButtonModule
-  ]
+    imports: [
+        RouterModule.forChild(loginRoute),
+        CommonModule,
+        MatToolbarModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatButtonModule,
+        MatButtonToggleModule
+    ]
 })
 export class LoginModule {
 }
