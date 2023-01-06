@@ -6,8 +6,8 @@
             <form class="d-flex flex-column align-items-center mb-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
               <mat-form-field>
                 <mat-icon matPrefix>person_outline</mat-icon>
-                <input autofocus type="text" matInput placeholder="Login" formControlName="email">
-                <mat-error *ngIf="emailControl.hasError('required')">
+                <input autofocus type="text" matInput placeholder="Login" formControlName="username">
+                <mat-error *ngIf="usernameControl.hasError('required')">
                   Pole wymagane
                 </mat-error>
               </mat-form-field>

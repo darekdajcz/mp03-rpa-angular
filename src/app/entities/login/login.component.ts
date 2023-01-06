@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import { TokenStorageService } from '../../shared/services/token-storage.service';
+import { filter } from 'rxjs';
+import { LoginModel } from './models/login.model';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
 
   loginForm = this.fb.group({
-    email: ['', [Validators.required]],
+    username: ['', [Validators.required]],
     password: ['', [Validators.required]]
   });
 
@@ -22,8 +24,8 @@ export class LoginComponent implements OnInit {
               private readonly tokenStorageService: TokenStorageService) {
   }
 
-  get emailControl(): FormControl<string> {
-    return this.loginForm.controls.email;
+  get usernameControl(): FormControl<string> {
+    return this.loginForm.controls.username;
   }
 
   get passwordControl(): FormControl<string> {
@@ -37,7 +39,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.authService.login({...this.loginForm.value })
+    const loginValues = {...this.loginForm.value } as LoginModel
+    this.authService.logIn(loginValues)
+      .pipe(filter((res)=> !!res.length))
       .subscribe({
         next: (res) => {
           this.tokenStorageService.saveToken(res.accesToken);

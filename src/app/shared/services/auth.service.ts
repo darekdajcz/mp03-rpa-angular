@@ -9,7 +9,7 @@ import { LoginModel } from '../../entities/login/models/login.model';
   providedIn: 'root'
 })
 export class AuthService {
-  private resourceUrl = `${ SERVER_API_URL }/auth`;
+  private resourceUrl = `${ SERVER_API_URL }/api/user`;
 
   constructor(private readonly http: HttpClient) {
   }
@@ -18,9 +18,9 @@ export class AuthService {
     return this.http.get(`${ this.resourceUrl }`);
   }
 
-  login(credentials: LoginModel): Observable<any> {
+  logIn(credentials: LoginModel): Observable<any> {
     const req = { username: credentials.username, password: credentials.password };
-    return this.http.post(`${ this.resourceUrl }/sign-in`, req);
+    return this.http.post(`${ this.resourceUrl }/login`, req);
   }
 
   register(user: User): Observable<any> {
