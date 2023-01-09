@@ -39,13 +39,15 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const loginValues = {...this.loginForm.value } as LoginModel
+    const loginValues = { ...this.loginForm.value } as Pick<LoginModel, 'username' | 'password'>;
     this.authService.logIn(loginValues)
-      .pipe(filter((res)=> !!res.length))
+      .pipe(filter((res) => !!res))
       .subscribe({
         next: (res) => {
-          this.tokenStorageService.saveToken(res.accesToken);
-          this.tokenStorageService.saveUser(res);
+
+          this.tokenStorageService.saveToken(res.token.accessToken);
+          this.tokenStorageService.saveToken(res.token.refreshToken, true);
+          this.tokenStorageService.saveUser(res.user);
           LoginComponent.reloadPage();
         }
       });

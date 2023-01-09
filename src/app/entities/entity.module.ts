@@ -9,8 +9,13 @@ import { RouterModule } from '@angular/router';
       {
         path: '',
         loadChildren: () => import('./login/login.module').then(module => module.LoginModule)
-      }]),
+      }, {
+        path: 'client',
+        loadChildren: () => import('./client/client.module').then(module => module.ClientModule)
+      }
+    ]),
     CommonModule
   ]
 })
-export class EntityModule { }
+export class EntityModule {
+}

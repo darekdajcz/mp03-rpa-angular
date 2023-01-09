@@ -68,3 +68,16 @@ body {
 .page {
   padding: 40px;
 }
+
+.login-background {
+  background-image: url('/assets/image/login-background.png');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-repeat: no-repeat;;
+  background-attachment: fixed;
+  border-radius: 15px;
+  min-height: calc(100vh - 100px);
+  font-size: 1.25rem;
+  color: #37507ED1;
+}

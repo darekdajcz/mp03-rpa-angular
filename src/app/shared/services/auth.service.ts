@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SERVER_API_URL } from '../../app.constants';
 import { Observable } from 'rxjs';
-import { User } from '../../entities/login/models/user';
+import { RegisterUser } from '../../entities/login/models/user';
 import { LoginModel } from '../../entities/login/models/login.model';
+import { LoginResponse } from '../../entities/login/models/login.response';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +19,17 @@ export class AuthService {
     return this.http.get(`${ this.resourceUrl }`);
   }
 
-  logIn(credentials: LoginModel): Observable<any> {
+  logIn(credentials: Pick<LoginModel, 'username' | 'password'>): Observable<LoginResponse> {
     const req = { username: credentials.username, password: credentials.password };
-    return this.http.post(`${ this.resourceUrl }/login`, req);
+    return this.http.post<LoginResponse>(`${ this.resourceUrl }/login`, req);
   }
 
-  register(user: User): Observable<any> {
+  account(credentials: LoginModel): Observable<LoginResponse> {
+    const req = { username: credentials.username, password: credentials.password };
+    return this.http.post<LoginResponse>(`${ this.resourceUrl }/login`, req);
+  }
+
+  register(user: RegisterUser): Observable<any> {
     const req = {
       username: user.username, email: user.email, password: user.password, role: user.role
     };

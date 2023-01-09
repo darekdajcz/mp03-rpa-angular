@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../../shared/services/auth.service';
 import { UserRoles } from '../../models/user-roles';
+import { RegisterUser } from '../../models/user';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +11,7 @@ import { UserRoles } from '../../models/user-roles';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignupComponent {
-  UserRoles = UserRoles
+  UserRoles = UserRoles;
 
   signUpForm = this.fb.group({
     username: ['', [Validators.required]],
@@ -35,7 +36,8 @@ export class SignupComponent {
   }
 
   onSubmit() {
-    this.authService.register({...this.signUpForm.value}).subscribe()
+    const registerUser = { ...this.signUpForm.value } as RegisterUser;
+    this.authService.register(registerUser).subscribe();
   }
 
   check() {

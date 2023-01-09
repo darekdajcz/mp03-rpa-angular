@@ -11,43 +11,27 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { SignupComponent } from './components/signup/signup.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-
-const loginRoute = [{
-  path: 'login',
-  component: LoginComponent,
-  title: 'Logowanie'
-  // resolve: {
-  //
-  // },
-  // data: {
-  //   authorities: [],
-  //   pageTitle: 'Ngrx Tutorial'
-  // },
-  // canActivate: []
-}, {
-  path: 'sign-up',
-  component: SignupComponent,
-  title: 'Rejestracja'
-}
-];
+import { HomeComponent } from '../../layouts/home/home.component';
+import { loginRoute } from './login.route';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    HomeComponent
   ],
-    imports: [
-        RouterModule.forChild(loginRoute),
-        CommonModule,
-        MatToolbarModule,
-        MatCardModule,
-        ReactiveFormsModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        MatButtonModule,
-        MatButtonToggleModule
-    ]
+  imports: [
+    RouterModule.forChild(loginRoute),
+    CommonModule,
+    MatToolbarModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    MatButtonToggleModule
+  ]
 })
 export class LoginModule {
 }

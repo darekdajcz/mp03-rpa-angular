@@ -11,7 +11,8 @@
           "prefix": "app",
           "inlineTemplate": false,
           "inlineStyle": false,
-          "style": "scss"
+          "style": "scss",
+          "skipTests": true
         },
         "@schematics/angular:application": {
           "strict": true

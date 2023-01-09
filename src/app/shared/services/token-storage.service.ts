@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { User } from '../../entities/login/models/user';
 
-const TOKEN_KEY = 'auth-token';
+const ACCESS_KEY = 'accessToken';
+const TOKEN_KEY = 'refreshToken';
 const USER_KEY = 'auth-user';
 
 @Injectable({
@@ -12,21 +14,26 @@ export class TokenStorageService {
     window.sessionStorage.clear();
   }
 
-  saveToken(token: string): void {
-    window.sessionStorage.removeItem(TOKEN_KEY);
-    window.sessionStorage.setItem(TOKEN_KEY, token);
+  saveToken(token: string, refreshToken = false): void {
+    if (!refreshToken) {
+      window.sessionStorage.removeItem(ACCESS_KEY);
+      window.sessionStorage.setItem(ACCESS_KEY, token);
+    } else {
+      window.sessionStorage.removeItem(TOKEN_KEY);
+      window.sessionStorage.setItem(TOKEN_KEY, token);
+    }
   }
 
   getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY)!;
   }
 
-  saveUser(user: string): void {
+  saveUser(user: User): void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  getUser(): any {
+  getUser(): User {
     return JSON.parse(sessionStorage.getItem(USER_KEY)!);
   }
 }

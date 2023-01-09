@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChil
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { TokenStorageService } from './shared/services/token-storage.service';
+import { UserRoles } from './entities/login/models/user-roles';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +13,11 @@ import { TokenStorageService } from './shared/services/token-storage.service';
 export class AppComponent implements OnInit {
   @ViewChild(MatSidenav) sideNav!: MatSidenav;
   opened = false;
-  private roles: string[];
-  isLoggedIn = false;
-  username: string;
+  private isLoggedIn = false;
+  private username: string;
+  private role: UserRoles;
 
-  constructor(private readonly router: Router, private readonly cdref: ChangeDetectorRef,
+  constructor(private readonly router: Router, private readonly cdRef: ChangeDetectorRef,
               private readonly tokenStorageService: TokenStorageService) {
     // translate.setDefaultLang('pl');
     // translate.use('pl');
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit {
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
-      this.roles = user.roles;
+      this.role = user.role;
       this.username = user.username;
     }
   }
@@ -40,7 +41,7 @@ export class AppComponent implements OnInit {
     this.router.navigate([pathRedirectTo]).then(() => this.opened = false);
   }
 
-  logout() {
+  logout(): void {
     this.tokenStorageService.signOut();
     window.location.reload();
   }

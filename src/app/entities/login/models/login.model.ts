@@ -1,4 +1,4 @@
-export class LoginModel {
-  username: string
-  password: string
+import { User } from './user';
+
+export interface LoginModel extends User{
 }

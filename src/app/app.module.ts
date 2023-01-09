@@ -20,7 +20,7 @@ import { authInterceptorProviders } from './blocks/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
