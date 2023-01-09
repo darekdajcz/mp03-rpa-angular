@@ -1,0 +1,7 @@
+<div class="h-100 login-background">
+  <div class="home-title h-100 opacity-100 d-flex flex-column">
+    <div>WITAJ <span *ngIf="user" style="color: #263238">:{{user.username}}:</span> NA STRONIE GŁÓWNEJ</div>
+    <div>ROLA ==> <span *ngIf="user" style="color: #263238">{{user.role}}</span></div>
+    <a *ngIf="!user" routerLink='/login'>Zaloguj się</a>
+  </div>
+</div>
