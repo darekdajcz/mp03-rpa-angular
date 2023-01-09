@@ -16,15 +16,10 @@ export class AuthService {
   }
 
   getAllUsers(): Observable<any> {
-    return this.http.get(`${ this.resourceUrl }`);
+    return this.http.get(`${ this.resourceUrl }/all-users`);
   }
 
   logIn(credentials: Pick<LoginModel, 'username' | 'password'>): Observable<LoginResponse> {
-    const req = { username: credentials.username, password: credentials.password };
-    return this.http.post<LoginResponse>(`${ this.resourceUrl }/login`, req);
-  }
-
-  account(credentials: LoginModel): Observable<LoginResponse> {
     const req = { username: credentials.username, password: credentials.password };
     return this.http.post<LoginResponse>(`${ this.resourceUrl }/login`, req);
   }

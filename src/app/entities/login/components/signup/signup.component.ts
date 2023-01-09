@@ -36,8 +36,9 @@ export class SignupComponent {
   }
 
   onSubmit() {
-    const registerUser = { ...this.signUpForm.value } as RegisterUser;
-    this.authService.register(registerUser).subscribe();
+    this.check();
+    // const registerUser = { ...this.signUpForm.value } as RegisterUser;
+    // this.authService.register(registerUser).subscribe();
   }
 
   check() {
