@@ -1,0 +1,24 @@
+<table class="table table-light table-striped table-hover p-4" *ngIf="!!clients">
+  <thead>
+  <tr class="table-dark">
+    <th scope="col">Imie i Nazwisko</th>
+    <th scope="col">Adres</th>
+    <th scope="col">Pesel</th>
+    <th scope="col">Czy może wziąć pożyczkę</th>
+    <th scope="col">Szczegóły</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let client of clients">
+    <th scope="row">{{client.first_name}} {{client.surname}}</th>
+    <td>{{client.address}}</td>
+    <td>{{client.pesel}}</td>
+    <td>{{client.can_get_loan | canGetLoan}}</td>
+    <td>
+      <button class="me-3" mat-stroked-button color="primary">Edytuj</button>
+      <button class="me-3" mat-stroked-button color="accent">Usuń</button>
+      <button class="me-3" mat-stroked-button color="primary">Szczegóły</button>
+    </td>
+  </tr>
+</table>
+
