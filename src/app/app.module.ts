@@ -16,6 +16,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { EntityModule } from './entities/entity.module';
 import { HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './blocks/auth.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { authInterceptorProviders } from './blocks/auth.interceptor';
     EntityModule,
     MatButtonModule,
     MatDividerModule,
+    NgbModule,
+    ReactiveFormsModule,
     MatIconModule,
     AppRoutingModule,
     SharedModule,

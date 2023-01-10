@@ -7,6 +7,10 @@ import { ClientTableComponent } from './components/client-table/client-table.com
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../../shared/shared.module';
 import { ClientEditModalComponent } from './components/client-edit-modal/client-edit-modal.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { ClientEditModalComponent } from './components/client-edit-modal/client-
     RouterModule.forChild(clientRoute),
     CommonModule,
     MatButtonModule,
-    SharedModule
+    SharedModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule
   ]
 })
 export class ClientModule { }

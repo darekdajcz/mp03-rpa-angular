@@ -15,7 +15,7 @@
     <td>{{client.pesel}}</td>
     <td>{{client.can_get_loan | canGetLoan}}</td>
     <td>
-      <button class="me-3" mat-stroked-button color="primary">Edytuj</button>
+      <button class="me-3" mat-stroked-button color="primary" (click)="updateClient(client)">Edytuj</button>
       <button class="me-3" mat-stroked-button color="accent">Usuń</button>
       <button class="me-3" mat-stroked-button color="primary">Szczegóły</button>
     </td>

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../shared/services/token-storage.service';
 import { User } from '../../entities/login/models/user';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   user: User;
 
-  constructor(private readonly tokenStorageService: TokenStorageService) {
+  constructor(private readonly tokenStorageService: TokenStorageService, private readonly fb: FormBuilder) {
   }
 
   ngOnInit(): void {

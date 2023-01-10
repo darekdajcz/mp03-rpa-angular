@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ClientService } from './client.service';
-import { finalize, take } from 'rxjs';
+import { filter, finalize, take } from 'rxjs';
 import { ClientModel } from './model/client.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClientEditModalComponent } from './components/client-edit-modal/client-edit-modal.component';
@@ -27,15 +27,16 @@ export class ClientComponent implements OnInit {
       });
   }
 
-  addClient(): void {
-    const modal = ClientEditModalComponent.open(this.modal);
+  updateClient(client?: ClientModel): void {
+    const modal = ClientEditModalComponent.open(this.modal, client);
 
     modal.closed
-      .pipe(take(1))
-      .subscribe({ next: (res) => this.createClient(res) });
+      .pipe(take(1),
+        filter(({ client }) => !!client))
+      .subscribe({ next: ({ client }) => ClientComponent.saveClient(client) });
   }
 
-  private createClient(res: ClientModel): void {
-
+  private static saveClient(res: ClientModel): void {
+    console.log(res)
   }
 }

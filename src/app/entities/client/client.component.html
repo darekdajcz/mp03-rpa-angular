@@ -1,8 +1,9 @@
 <div class="page">
   <h1 class="mb-4">Baza Klienta</h1>
   <button class="mb-2" mat-raised-button color="primary"
-          (click)="addClient()">
+          (click)="updateClient()">
     Dodaj Klienta
   </button>
-  <app-client-table *ngIf="clients" [clients]="clients"></app-client-table>
+  <app-client-table *ngIf="clients" [clients]="clients"
+                    (updateClientEmitter)="updateClient($event)"></app-client-table>
 </div>

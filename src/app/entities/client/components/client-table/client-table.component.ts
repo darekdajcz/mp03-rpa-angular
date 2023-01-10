@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output
+} from '@angular/core';
 import { ClientModel } from '../../model/client.model';
 
 @Component({
@@ -17,6 +25,8 @@ export class ClientTableComponent implements OnInit {
     return this._clients;
   }
 
+  @Output() updateClientEmitter = new EventEmitter<ClientModel>();
+
   constructor(private readonly cdRef: ChangeDetectorRef) {
   }
 
@@ -25,6 +35,10 @@ export class ClientTableComponent implements OnInit {
   }
 
   canGetLoan(can_get_loan: string) {
-    return can_get_loan ? 'Tak' : 'Nie'
+    return can_get_loan ? 'Tak' : 'Nie';
+  }
+
+  updateClient(client: ClientModel) {
+    this.updateClientEmitter.emit(client);
   }
 }
