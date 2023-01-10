@@ -5,6 +5,7 @@ import { ClientModel } from './model/client.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClientEditModalComponent } from './components/client-edit-modal/client-edit-modal.component';
 import { EditedResponse } from './model/edit-response.model';
+import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-client',
@@ -29,13 +30,21 @@ export class ClientComponent implements OnInit {
 
     modal.closed
       .pipe(take(1),
-        filter(({ client }) => !!client))
+        filter((res) => !!res))
       .subscribe({ next: ({ client }) => this.saveClient(client) });
   }
 
 
   deleteClient($event: number) {
-    this.confirmDeleteClient($event);
+
+    const deleteId = $event;
+
+    const modal = ConfirmDialogComponent.open(this.modal, 'Czy na pewno chcesz usunąć tego klienta?');
+
+    modal.closed
+      .pipe(take(1),
+        filter((res) => res))
+      .subscribe({ next: () => this.confirmDeleteClient(deleteId) });
   }
 
   private confirmDeleteClient(id: number) {
