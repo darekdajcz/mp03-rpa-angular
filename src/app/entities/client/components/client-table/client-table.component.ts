@@ -26,6 +26,7 @@ export class ClientTableComponent implements OnInit {
   }
 
   @Output() updateClientEmitter = new EventEmitter<ClientModel>();
+  @Output() deleteClientEmitter = new EventEmitter<number>();
 
   constructor(private readonly cdRef: ChangeDetectorRef) {
   }
@@ -40,5 +41,9 @@ export class ClientTableComponent implements OnInit {
 
   updateClient(client: ClientModel) {
     this.updateClientEmitter.emit(client);
+  }
+
+  deleteClient(id: number) {
+    this.deleteClientEmitter.emit(id);
   }
 }

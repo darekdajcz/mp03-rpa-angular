@@ -22,5 +22,8 @@ export class ClientService {
 
 
   updateClient = (req: ClientModel): Observable<Pick<EditedResponse, 'updated'>> =>
-    this.http.post<Pick<EditedResponse, 'updated'>>(`${ this.resourceUrl }/create`, req);
+    this.http.put<Pick<EditedResponse, 'updated'>>(`${ this.resourceUrl }/update`, req);
+
+  deleteClient = (id: number): Observable<Pick<EditedResponse, 'deleted'>> =>
+    this.http.delete<Pick<EditedResponse, 'deleted'>>(`${ this.resourceUrl }/${id}`);
 }

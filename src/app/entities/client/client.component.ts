@@ -33,6 +33,19 @@ export class ClientComponent implements OnInit {
       .subscribe({ next: ({ client }) => this.saveClient(client) });
   }
 
+
+  deleteClient($event: number) {
+    this.confirmDeleteClient($event);
+  }
+
+  private confirmDeleteClient(id: number) {
+    this.clientService.deleteClient(id)
+      .pipe(filter((res) => res.deleted))
+      .subscribe({
+        next: () => this.initClients()
+      });
+  }
+
   private saveClient(req: ClientModel): void {
     let observable: Observable<Partial<EditedResponse>> = req.id ? this.clientService.updateClient(req) : this.clientService.createClient(req);
     observable
