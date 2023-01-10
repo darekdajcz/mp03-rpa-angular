@@ -81,3 +81,12 @@ body {
   font-size: 1.25rem;
   color: #37507ED1;
 }
+
+.btn-close {
+  padding: 1rem;
+  margin: 1rem 1rem 1rem auto;
+
+  &:focus {
+    box-shadow: none;
+  }
+}

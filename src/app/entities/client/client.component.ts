@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ClientService } from './client.service';
-import { finalize } from 'rxjs';
+import { finalize, take } from 'rxjs';
 import { ClientModel } from './model/client.model';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ClientEditModalComponent } from './components/client-edit-modal/client-edit-modal.component';
 
 @Component({
   selector: 'app-client',
@@ -13,7 +15,8 @@ export class ClientComponent implements OnInit {
 
   clients: ClientModel[];
 
-  constructor(private readonly clientService: ClientService, private readonly cdRef: ChangeDetectorRef) {
+  constructor(private readonly clientService: ClientService, private readonly cdRef: ChangeDetectorRef,
+              private readonly modal: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -25,6 +28,14 @@ export class ClientComponent implements OnInit {
   }
 
   addClient(): void {
+    const modal = ClientEditModalComponent.open(this.modal);
+
+    modal.closed
+      .pipe(take(1))
+      .subscribe({ next: (res) => this.createClient(res) });
+  }
+
+  private createClient(res: ClientModel): void {
 
   }
 }

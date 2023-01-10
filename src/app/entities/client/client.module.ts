@@ -6,11 +6,13 @@ import { clientRoute } from './client.route';
 import { ClientTableComponent } from './components/client-table/client-table.component';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../../shared/shared.module';
+import { ClientEditModalComponent } from './components/client-edit-modal/client-edit-modal.component';
 
 @NgModule({
   declarations: [
     ClientComponent,
-    ClientTableComponent
+    ClientTableComponent,
+    ClientEditModalComponent
   ],
   imports: [
     RouterModule.forChild(clientRoute),
