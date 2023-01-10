@@ -3,6 +3,7 @@ import { SERVER_API_URL } from '../../app.constants';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ClientModel } from './model/client.model';
+import { EditedResponse } from './model/edit-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,4 +17,10 @@ export class ClientService {
   getAllClients = (): Observable<ClientModel[]> =>
     this.http.get<ClientModel[]>(`${ this.resourceUrl }/all`);
 
+  createClient = (req: Omit<ClientModel, 'id'>): Observable<Pick<EditedResponse, 'created'>> =>
+    this.http.post<Pick<EditedResponse, 'created'>>(`${ this.resourceUrl }/create`, req);
+
+
+  updateClient = (req: ClientModel): Observable<Pick<EditedResponse, 'updated'>> =>
+    this.http.post<Pick<EditedResponse, 'updated'>>(`${ this.resourceUrl }/create`, req);
 }

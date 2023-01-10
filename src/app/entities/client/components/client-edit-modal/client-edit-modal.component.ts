@@ -75,7 +75,8 @@ export class ClientEditModalComponent implements OnInit {
   }
 
   saveClient() {
-    const client = { ...this.clientForm.getRawValue() };
+    const client = { ...this.clientForm.getRawValue(), id: this.clientModel?.id} as ClientModel;
+
     this.activeModal.close({ client });
   }
 }
