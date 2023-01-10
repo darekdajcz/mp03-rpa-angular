@@ -3,9 +3,15 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import locales from '@angular/common/locales/pl';
 import { fontAwesomeIco } from './font-awesome-icons/font-awesome-icons';
+import { CanGetLoanPipe } from './pipes/can-get-loan.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CanGetLoanPipe
+  ],
+  exports: [
+    CanGetLoanPipe
+  ],
   imports: [
     CommonModule
   ]

@@ -24,8 +24,8 @@ export class TokenStorageService {
     }
   }
 
-  getToken(): string {
-    return sessionStorage.getItem(TOKEN_KEY)!;
+  getToken(refreshToken = false): string {
+    return !refreshToken ? sessionStorage.getItem(ACCESS_KEY)! : sessionStorage.getItem(TOKEN_KEY)!
   }
 
   saveUser(user: User): void {

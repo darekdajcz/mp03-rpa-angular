@@ -1,1 +1,8 @@
-<p>client works!</p>
+<div class="page">
+  <h1 class="mb-4">Baza Klienta</h1>
+  <button class="mb-2" mat-raised-button color="primary"
+          (click)="addClient()">
+    Dodaj Klienta
+  </button>
+  <app-client-table *ngIf="clients" [clients]="clients"></app-client-table>
+</div>
