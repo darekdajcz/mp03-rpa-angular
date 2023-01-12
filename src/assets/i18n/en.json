@@ -63,5 +63,13 @@
     "pesel": "Pesel",
     "can_get_loan": "Can get a loan?",
     "details": "Details"
+  },
+  "bank": {
+    "header": "Bank Database",
+    "add-bank": "Add Bank",
+    "to-bank": "Bank",
+    "name": "Name of the bank",
+    "address": "Address",
+    "details": "Details"
   }
 }

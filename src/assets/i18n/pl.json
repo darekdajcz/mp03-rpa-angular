@@ -65,5 +65,13 @@
     "pesel": "Pesel",
     "can_get_loan": "Czy może wziąć pożyczkę",
     "details": "Szczegóły"
+  },
+  "bank": {
+    "header": "Baza Banku",
+    "add-bank": "Dodaj Bank",
+    "to-bank": "Banku",
+    "name": "Nazwa Banku",
+    "address": "Adres",
+    "details": "Szczegóły"
   }
 }
