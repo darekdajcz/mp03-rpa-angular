@@ -14,15 +14,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { EntityModule } from './entities/entity.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { authInterceptorProviders } from './blocks/auth.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MissingTranslationHandler, MissingTranslationHandlerParams } from '@ngx-translate/core';
+
+const appInitialazerFactory = (http: HttpClient): TranslateHttpLoader =>
+  new TranslateHttpLoader(http, 'i18n/', '.json');
+
+class CustomMissingTranslationHandler implements MissingTranslationHandler {
+  handle(params: MissingTranslationHandlerParams): any {
+    `translation-not-found[${ params }]`;
+  }
+
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -44,4 +56,5 @@ import { ReactiveFormsModule } from '@angular/forms';
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

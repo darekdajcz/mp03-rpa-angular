@@ -23,6 +23,8 @@
     "@fortawesome/angular-fontawesome": "^0.12.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@ng-bootstrap/ng-bootstrap": "^14.0.0",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
     "bootstrap": "^5.2.3",
     "crypto-js": "^4.1.1",
     "rxjs": "7.5.0",
