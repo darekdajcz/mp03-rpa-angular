@@ -19,7 +19,7 @@ export class AccountTableComponent {
     this._accounts = value;
   };
 
-  get banks(): AccountModel[] {
+  get accounts(): AccountModel[] {
     return this._accounts;
   }
 
@@ -27,15 +27,15 @@ export class AccountTableComponent {
   @Output() deleteAccountEmitter = new EventEmitter<number>();
   @Output() detailsAccountEmitter = new EventEmitter<AccountModel>();
 
-  updateClient(bank: AccountModel): void {
-    this.updateAccountEmitter.emit(bank);
+  updateClient(accounts: AccountModel): void {
+    this.updateAccountEmitter.emit(accounts);
   }
 
   deleteClient(id: number): void {
     this.deleteAccountEmitter.emit(id);
   }
 
-  detailsClient(bank: AccountModel): void {
-    this.detailsAccountEmitter.emit(bank);
+  detailsClient(accounts: AccountModel): void {
+    this.detailsAccountEmitter.emit(accounts);
   }
 }

@@ -13,7 +13,7 @@
     <th scope="row">{{client.first_name}} {{client.surname}}</th>
     <td>{{client.address}}</td>
     <td>{{client.pesel}}</td>
-    <td>{{client.can_get_loan | canGetLoan}}</td>
+    <td>{{client.can_get_loan | aproove}}</td>
     <td>
       <button class="me-3" mat-stroked-button color="primary" (click)="updateClient(client)">{{'button.update' | translate}}</button>
       <button class="me-3" mat-stroked-button color="warn" (click)="deleteClient(client.id)">{{'button.delete' | translate}}</button>
