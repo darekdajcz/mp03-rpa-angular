@@ -13,6 +13,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { HomeComponent } from '../../layouts/home/home.component';
 import { loginRoute } from './login.route';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -20,18 +21,19 @@ import { loginRoute } from './login.route';
     SignupComponent,
     HomeComponent
   ],
-  imports: [
-    RouterModule.forChild(loginRoute),
-    CommonModule,
-    MatToolbarModule,
-    MatCardModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatButtonModule,
-    MatButtonToggleModule
-  ]
+    imports: [
+        RouterModule.forChild(loginRoute),
+        CommonModule,
+        MatToolbarModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        TranslateModule
+    ]
 })
 export class LoginModule {
 }
