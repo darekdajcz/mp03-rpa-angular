@@ -6,6 +6,7 @@
         <form class="d-flex flex-column align-items-center mb-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
           <mat-form-field>
             <mat-icon matPrefix>person_outline</mat-icon>
+            <mat-label>{{'register.username' | translate}}</mat-label>
             <input autofocus type="text" matInput placeholder="Login" formControlName="username">
             <mat-error *ngIf="usernameControl.hasError('required')">
               {{'form.required' | translate}}
@@ -13,7 +14,8 @@
           </mat-form-field>
           <mat-form-field>
             <mat-icon matPrefix>lock_outline</mat-icon>
-            <input type="password" autocomplete="false" matInput placeholder="Hasło" formControlName="password">
+            <mat-label>{{'register.email' | translate}}</mat-label>
+            <input type="password" autocomplete="false" matInput formControlName="password">
             <mat-error *ngIf="passwordControl.hasError('required')">
               {{'form.required' | translate}}
             </mat-error>

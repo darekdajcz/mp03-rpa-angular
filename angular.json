@@ -37,6 +37,7 @@
             ],
             "styles": [
               "src/material-custom.scss",
+              "node_modules/ngx-spinner/animations/ball-fussion.css",
               "src/styles.scss"
             ],
             "scripts": []

@@ -1,42 +1,49 @@
 <div class="h-100 login-background">
-<!--  <button type="submit" mat-raised-button color="primary" (click)="check()">CHECK</button>-->
+  <!--  <button type="submit" mat-raised-button color="primary" (click)="check()">CHECK</button>-->
   <div class="w-50 h-100 opacity-100">
     <div class="login-container">
-      <mat-toolbar class="login-toolbar" color="primary">Zarejestruj konto w banku</mat-toolbar>
+      <mat-toolbar class="login-toolbar" color="primary">{{'register.register-header' | translate}}</mat-toolbar>
       <mat-card class="p-3">
-        <form class="d-flex flex-column align-items-center" [formGroup]="signUpForm" (ngSubmit)="onSubmit()" >
+        <form class="d-flex flex-column align-items-center" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
 
           <mat-form-field>
             <mat-icon matPrefix>person_outline</mat-icon>
-            <input autofocus type="text" matInput placeholder="Nazwa" formControlName="username">
+            <mat-label>{{'register.username' | translate}}</mat-label>
+            <input autofocus type="text" matInput formControlName="username">
             <mat-error *ngIf="usernameControl.hasError('required')">
-              Pole wymagane
+              {{'form.required' | translate}}
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-icon matPrefix>alternate_email</mat-icon>
+            <mat-label>{{'register.email' | translate}}</mat-label>
             <input autofocus type="text" matInput placeholder="Email" formControlName="email">
             <mat-error *ngIf="emailControl.hasError('required')">
-              Pole wymagane
+              {{'form.required' | translate}}
             </mat-error>
           </mat-form-field>
 
           <mat-form-field>
             <mat-icon matPrefix>lock_outline</mat-icon>
+            <mat-label>{{'register.password' | translate}}</mat-label>
             <input type="password" autocomplete="false" matInput placeholder="Hasło" formControlName="password">
             <mat-error *ngIf="passwordControl.hasError('required')">
-              Pole wymagane
+              {{'form.required' | translate}}
             </mat-error>
           </mat-form-field>
 
           <mat-button-toggle-group class="w-100" name="fontStyle" aria-label="Font Style" formControlName="role">
-            <mat-button-toggle class="w-25" [value]="UserRoles.ROLE_USER">Klient</mat-button-toggle>
-            <mat-button-toggle  class="w-25" [value]="UserRoles.ROLE_AGENT">Agent</mat-button-toggle>
-            <mat-button-toggle  class="w-50" [value]="UserRoles.ROLE_ADMIN">Administrator</mat-button-toggle>
+            <mat-button-toggle class="w-25"
+                               [value]="UserRoles.ROLE_USER">{{'userRole.ROLE_USER' | translate}}</mat-button-toggle>
+            <mat-button-toggle class="w-25"
+                               [value]="UserRoles.ROLE_AGENT">{{'userRole.ROLE_AGENT' | translate}}</mat-button-toggle>
+            <mat-button-toggle class="w-50"
+                               [value]="UserRoles.ROLE_ADMIN">{{'userRole.ROLE_ADMIN' | translate}}</mat-button-toggle>
           </mat-button-toggle-group>
 
-          <button class="mt-3" type="submit" mat-raised-button color="primary">ZAŁÓŻ KONTO</button>
+          <button class="mt-3" type="submit" mat-raised-button color="primary">{{'register.sign-in' | translate}}
+          </button>
         </form>
       </mat-card>
     </div>

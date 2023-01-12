@@ -4,6 +4,7 @@
   "angular-dev": "Angular Dev",
   "yes": "Tak",
   "no": "Nie",
+  "loading": "Ładowanie...",
   "header": {
     "add": "Dodaj",
     "edit": "Edytuj"
@@ -44,7 +45,10 @@
   },
   "register": {
     "register-header": "Zarejestruj konto w banku",
-    "sign-in": "ZAŁÓŻ KONTO"
+    "sign-in": "ZAŁÓŻ KONTO",
+    "username": "Nazwa",
+    "email": "Email",
+    "password": "Hasło"
   },
   "form": {
     "required": "Pole wymagane"

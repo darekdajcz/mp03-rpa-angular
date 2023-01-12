@@ -64,12 +64,12 @@
   <mat-sidenav-content>
     <div class="content mat-elevation-z1">
       <router-outlet></router-outlet>
-      <!--      <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#229489" type="square-jelly-box"-->
-      <!--                   [fullScreen]="true">-->
-      <!--        <p style="color: #229489">-->
-      <!--          Loading...-->
-      <!--        </p>-->
-      <!--      </ngx-spinner>-->
+            <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#229489" type="ball-fussion"
+                         [fullScreen]="true">
+              <p style="color: #229489">
+                {{'loading' | translate}}
+              </p>
+            </ngx-spinner>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

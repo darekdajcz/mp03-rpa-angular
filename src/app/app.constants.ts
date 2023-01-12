@@ -1,6 +1,8 @@
 import { environment } from '../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 
+export const DELAY_TIMEOUT = 500
+
 export const ANGULAR_MAT_DATE_FORMATS = {
   parse: {
     dateInput: 'L'

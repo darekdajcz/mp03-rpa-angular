@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { authInterceptorProviders, translateModuleConfig, translateServiceProvider } from './provider.config';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { authInterceptorProviders, translateModuleConfig, translateServiceProvid
     FontAwesomeModule,
     MatMenuModule,
     HttpClientModule,
+    NgxSpinnerModule,
     TranslateModule.forRoot(translateModuleConfig)
   ],
   providers: [

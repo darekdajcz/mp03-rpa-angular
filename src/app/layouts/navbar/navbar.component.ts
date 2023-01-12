@@ -1,17 +1,20 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../shared/services/token-storage.service';
 import { TranslateService } from '@ngx-translate/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { DELAY_TIMEOUT } from '../../app.constants';
 
 @Component({
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
 
   lang = 'pl';
 
-  constructor(private readonly tokenStorageService: TokenStorageService, private readonly translateService: TranslateService) {
+  constructor(private readonly tokenStorageService: TokenStorageService, private readonly translateService: TranslateService,
+              private readonly spinner: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
@@ -22,11 +25,16 @@ export class NavbarComponent implements OnInit{
     window.open('https://github.com/darekbiszkopt/AngularLib', '_blank');
   }
 
-  click(): void {
-    this.lang = this.lang === 'pl' ? 'en' : 'pl';
-    this.tokenStorageService.saveLang(this.lang);
+  internationalization(): void {
+    this.spinner.show().then(() => {
 
-    this.translateService.use(this.lang);
+      this.lang = this.lang === 'pl' ? 'en' : 'pl';
+
+      this.tokenStorageService.saveLang(this.lang);
+
+      this.translateService.use(this.lang);
+    }).then(()=> setTimeout(()=> this.spinner.hide(), DELAY_TIMEOUT));
+
   }
 
 }
