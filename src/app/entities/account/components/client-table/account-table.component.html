@@ -1,9 +1,11 @@
-<table class="table table-light table-striped table-hover p-4" *ngIf="!!accounts">
+<table class="table main table-light table-striped table-hover p-4" *ngIf="!!accounts">
   <thead>
   <tr class="table-dark">
     <th scope="col">{{'account.account_number' | translate}}</th>
     <th scope="col">{{'account.creation_date' | translate}}</th>
     <th scope="col">{{'account.bonuses' | translate}}</th>
+    <th scope="col">{{'account.client_id' | translate}}</th>
+    <th scope="col">{{'account.bank_id' | translate}}</th>
     <th scope="col">{{'account.details' | translate}}</th>
   </tr>
   </thead>
@@ -12,8 +14,8 @@
     <th scope="row">{{account.account_number}}</th>
     <td>{{account.creation_date}}</td>
     <td>{{account.bonuses | aproove}}</td>
-    <td>{{account.client_id | aproove}}</td>
-    <td>{{account.bank_id | aproove}}</td>
+    <td>{{account.client_id}}</td>
+    <td>{{account.bank_id}}</td>
     <td>
       <button class="me-3" mat-stroked-button color="primary" (click)="updateClient(account)">{{'button.update' | translate}}</button>
       <button class="me-3" mat-stroked-button color="warn" (click)="deleteClient(account.id)">{{'button.delete' | translate}}</button>

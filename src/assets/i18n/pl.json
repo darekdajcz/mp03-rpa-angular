@@ -77,5 +77,16 @@
     "name": "Nazwa Banku",
     "address": "Adres",
     "details": "Szczegóły"
+  },
+  "account": {
+    "header": "Baza Kont",
+    "add-account": "Dodaj Konto",
+    "to-account": "Konto",
+    "account_number": "Numer Konta",
+    "creation_date": "Data utworzenia",
+    "bonuses": "Bonusy",
+    "client_id": "Klient",
+    "bank_id": "Bank",
+    "details": "Szczegóły"
   }
 }

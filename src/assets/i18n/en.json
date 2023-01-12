@@ -75,5 +75,16 @@
     "name": "Name of the bank",
     "address": "Address",
     "details": "Details"
+  },
+  "account": {
+    "header": "Account Database",
+    "add-account": "Add Account",
+    "to-account": "Account",
+    "account_number": "Account number",
+    "creation_date": "Creation date",
+    "bonuses": "Bonuses",
+    "client_id": "Client",
+    "bank_id": "Bank",
+    "details": "Details"
   }
 }

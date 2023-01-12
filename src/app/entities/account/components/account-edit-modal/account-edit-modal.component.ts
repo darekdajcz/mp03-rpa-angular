@@ -9,34 +9,49 @@ import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms'
 })
 export class AccountEditModalComponent implements OnInit {
 
-  bankModel?: AccountModel;
+  accountModel?: AccountModel;
   details = false;
 
-  bankForm = this.fb.group({
-    name: ['', [Validators.required]],
-    address: ['', [Validators.required]]
+  accountForm = this.fb.group({
+    account_number: ['', [Validators.required]],
+    creation_date: ['', [Validators.required]],
+    bonuses: ['', [Validators.required]],
+    client_id: ['', [Validators.required]],
+    bank_id: ['', [Validators.required]]
   });
 
   constructor(private readonly activeModal: NgbActiveModal, private readonly fb: NonNullableFormBuilder) {
   }
 
-  static open(ngbModal: NgbModal, bankModel?: AccountModel, details?: boolean): NgbModalRef {
+  static open(ngbModal: NgbModal, accountModel?: AccountModel, details?: boolean): NgbModalRef {
     const modal = ngbModal.open(AccountEditModalComponent, {
       centered: true
     });
 
-    modal.componentInstance.bankModel = bankModel;
+    modal.componentInstance.accountModel = accountModel;
     modal.componentInstance.details = details;
 
     return modal;
   }
 
-  get nameControl(): FormControl<string> {
-    return this.bankForm.controls.name;
+  get accountNumberControl(): FormControl<string> {
+    return this.accountForm.controls.account_number;
   }
 
-  get addressControl(): FormControl<string> {
-    return this.bankForm.controls.address;
+  get creationDateControl(): FormControl<string> {
+    return this.accountForm.controls.creation_date;
+  }
+
+  get bonusesControl(): FormControl<string> {
+    return this.accountForm.controls.bonuses;
+  }
+
+  get clientIdControl(): FormControl<string> {
+    return this.accountForm.controls.client_id;
+  }
+
+  get bankIdControl(): FormControl<string> {
+    return this.accountForm.controls.bank_id;
   }
 
   ngOnInit(): void {
@@ -48,21 +63,23 @@ export class AccountEditModalComponent implements OnInit {
   }
 
   private initForm(): void {
-    if (this.bankModel) {
-      this.bankForm.patchValue({
-        name: this.bankModel.name || '',
-        address: this.bankModel.address || '',
+    if (this.accountModel) {
+      this.accountForm.patchValue({
+        account_number: this.accountModel.account_number || '',
+        creation_date: this.accountModel.creation_date || '',
+        bonuses: this.accountModel.bonuses || '',
+        client_id: this.accountModel.bank_id || '',
+        bank_id: this.accountModel.client_id || '',
       });
     }
 
     if (this.details) {
-      this.bankForm.disable();
+      this.accountForm.disable();
     }
   }
 
-  saveBank() {
-    const bank = { ...this.bankForm.getRawValue(), id: this.bankModel?.id } as AccountModel;
-
-    this.activeModal.close({ bank });
+  saveAccount() {
+    const account = { ...this.accountForm.getRawValue(), id: this.accountModel?.id } as AccountModel;
+    this.activeModal.close({ account });
   }
 }
