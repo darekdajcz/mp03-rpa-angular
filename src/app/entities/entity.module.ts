@@ -15,6 +15,9 @@ import { RouterModule } from '@angular/router';
       }, {
         path: 'bank',
         loadChildren: () => import('./bank/bank.module').then(module => module.BankModule)
+      }, {
+        path: 'account',
+        loadChildren: () => import('./account/account.module').then(module => module.AccountModule)
       }
     ]),
     CommonModule

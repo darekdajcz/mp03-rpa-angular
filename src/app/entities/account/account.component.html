@@ -1,0 +1,11 @@
+<div class="page">
+  <h1 class="mb-4">{{'account.header' | translate}}</h1>
+  <button class="mb-2" mat-raised-button color="primary"
+          (click)="updateAccount()">
+    {{'account.add-account' | translate}}
+  </button>
+  <app-account-table *ngIf="accounts" [accounts]="accounts"
+                    (updateAccountEmitter)="updateAccount($event)"
+                    (deleteAccountEmitter)="deleteAccount($event)"
+                    (detailsAccountEmitter)="detailsAccount($event)"></app-account-table>
+</div>
