@@ -12,6 +12,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HomeComponent implements OnInit {
 
+  lang = 'pl'
   user: User;
 
   constructor(private readonly tokenStorageService: TokenStorageService, private readonly fb: FormBuilder,
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
   }
 
   click(): void {
-      this.translateService.use('en')
+      this.lang = this.lang === 'pl' ? 'en' : 'pl'
+      this.translateService.use(this.lang)
   }
 }

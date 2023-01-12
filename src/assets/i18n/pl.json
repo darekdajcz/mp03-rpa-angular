@@ -1,5 +1,54 @@
 {
   "angular-lib": {
     "title": "Aplikacja Angular"
+  },
+  "button": {
+    "login": "Zaloguj",
+    "sign-up": "Rejestracja",
+    "logout": "Wyloguj",
+    "details": "Szczegóły",
+    "delete": "Usuń",
+    "update": "Edytuj"
+  },
+  "section": {
+    "home": "Strona Główna",
+    "client-database": "Baza Klienta",
+    "info": "Info",
+    "ngrx": "NgRx",
+    "login": "Sekcja Logowania",
+    "help": "Pomoc"
+  },
+  "home": {
+    "hello": "WITAJ",
+    "main-app": "NA STRONIE GŁÓWNEJ",
+    "role": "ROLA",
+    "login": "Zaloguj się"
+  },
+  "login": {
+    "logg-header": "Zaloguj sie do banku",
+    "loggedIn": "ZALOGOWANY"
+  },
+  "register": {
+    "register-header": "Zarejestruj konto w banku",
+    "sign-in": "ZAŁÓŻ KONTO"
+  },
+  "form": {
+    "required": "Pole wymagane"
+  },
+  "userRole": {
+    "ROLE_USER": "Klient",
+    "ROLE_AGENT": "Agent",
+    "ROLE_ADMIN": "Administrator"
+  },
+  "client": {
+    "header": "Baza Klienta",
+    "to-client": "Klienta",
+    "name": "Imie i Nazwisko",
+    "first_name": "Imie",
+    "surname": "Nazwisko",
+    "address": "Adres",
+    "pesel": "Pesel",
+    "can_get_loan": "Czy może wziąć pożyczkę",
+    "details": "Szczegóły"
   }
 }

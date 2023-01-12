@@ -1,5 +1,54 @@
 {
   "angular-lib": {
-    "title": "Angular Application"
+    "title": "Angular Spp"
+  },
+  "button": {
+    "login": "Login",
+    "sign-up": "Registration",
+    "logout": "Log out",
+    "details": "Details",
+    "delete": "Delete",
+    "update": "Edit"
+  },
+  "section": {
+    "home": "Home",
+    "client-database": "Customer Database",
+    "info": "Info",
+    "ngrx": "NgRx",
+    "login": "Login section",
+    "help": "Help"
+  },
+  "home": {
+    "hello": "WELCOME",
+    "main-app": "ON THE HOME PAGE",
+    "role": "ROLE",
+    "login": "Log in"
+  },
+  "login": {
+    "logg-header": "Log in to the bank",
+    "loggedIn": "LOGGED"
+  },
+  "register": {
+    "register-header": "Register a bank account",
+    "sign-in": "CREATE AN ACCOUNT"
+  },
+  "form": {
+    "required": "Required field"
+  },
+  "userRole": {
+    "ROLE_USER": "Klient",
+    "ROLE_AGENT": "Client",
+    "ROLE_ADMIN": "Administrator"
+  },
+  "client": {
+    "header": "Customer Database",
+    "to-client": "Customer",
+    "name": "First name and last name",
+    "first_name": "Name",
+    "surname": "Surname",
+    "address": "Address",
+    "pesel": "Pesel",
+    "can_get_loan": "Can get a loan?",
+    "details": "Details"
   }
 }
