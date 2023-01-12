@@ -2,49 +2,61 @@
   <div class="ms-4" type="button" (click)="toggleSideNav()">
     <mat-icon>menu</mat-icon>
   </div>
-  <router-outlet name="navbar"></router-outlet>
-  <button mat-button [matMenuTriggerFor]="menu"><mat-icon class="icon-display">person_pin</mat-icon></button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="redirectTo('login')">Zaloguj</button>
-    <button mat-menu-item (click)="redirectTo('sign-up')">Rejestracja</button>
-    <button mat-menu-item (click)="logout()">Wyloguj</button>
-  </mat-menu>
+  <div class="d-flex">
+    <router-outlet name="navbar"></router-outlet>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon class="icon-display">person_pin</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="redirectTo('login')">{{'button.login' | translate}}</button>
+      <button mat-menu-item (click)="redirectTo('sign-up')">{{'button.sign-up' | translate}}</button>
+      <button mat-menu-item (click)="logout()">{{'button.logout' | translate}}</button>
+    </mat-menu>
+  </div>
 </div>
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened">
 
     <img class="avatar mat-elevation-z8" [src]="'assets/image/author.png'" alt="dariusz_dajcz"/>
-    <h4 class="name">Dariusz Dajcz</h4>
-    <p class="designation">Angular Dev</p>
+    <h4 class="name">{{'author' | translate}}</h4>
+    <p class="designation">{{'angular-dev' | translate}}</p>
 
     <mat-divider></mat-divider>
 
     <button mat-button class="menu-button" (click)="redirectTo('')">
       <mat-icon>home</mat-icon>
-      <span>Home</span>
+      <span>{{'section.home' | translate}}</span>
     </button>
     <button mat-button class="menu-button" (click)="redirectTo('client')">
       <mat-icon>person</mat-icon>
-      <span>Baza Klienta</span>
+      <span>{{'section.client-database' | translate}}</span>
+    </button>
+    <button mat-button class="menu-button" (click)="redirectTo('account')">
+      <mat-icon>attach_money</mat-icon>
+      <span>{{'section.account-database' | translate}}</span>
+    </button>
+    <button mat-button class="menu-button" (click)="redirectTo('bank')">
+      <mat-icon>account_balance</mat-icon>
+      <span>{{'section.bank-database' | translate}}</span>
     </button>
     <button mat-button class="menu-button" (click)="redirectTo('info')">
       <mat-icon>info</mat-icon>
-      <span>Info</span>
+      <span>{{'section.info' | translate}}</span>
     </button>
     <button mat-button class="menu-button" (click)="redirectTo('ngrx')">
       <img class="icon" [src]="'assets/image/ngrx_-removebg.png'" alt="ngrx"/>
-      <span class="ngrx-span">NgRx</span>
+      <span class="ngrx-span">{{'section.ngrx' | translate}}</span>
     </button>
     <button mat-button class="menu-button" (click)="redirectTo('login')">
       <mat-icon>login</mat-icon>
-      <span>Login section</span>
+      <span>{{'section.login' | translate}}</span>
     </button>
 
     <mat-divider></mat-divider>
 
     <button mat-button class="menu-button" (click)="redirectTo('help')">
       <mat-icon>help</mat-icon>
-      <span>Help</span>
+      <span>{{'section.help' | translate}}</span>
     </button>
   </mat-sidenav>
 
@@ -52,12 +64,12 @@
   <mat-sidenav-content>
     <div class="content mat-elevation-z1">
       <router-outlet></router-outlet>
-<!--      <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#229489" type="square-jelly-box"-->
-<!--                   [fullScreen]="true">-->
-<!--        <p style="color: #229489">-->
-<!--          Loading...-->
-<!--        </p>-->
-<!--      </ngx-spinner>-->
+      <!--      <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#229489" type="square-jelly-box"-->
+      <!--                   [fullScreen]="true">-->
+      <!--        <p style="color: #229489">-->
+      <!--          Loading...-->
+      <!--        </p>-->
+      <!--      </ngx-spinner>-->
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

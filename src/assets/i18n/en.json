@@ -1,4 +1,11 @@
 {
+  "internationalization": "PL/ENG",
+  "yes": "Yes",
+  "no": "No",
+  "header": {
+    "add": "Add",
+    "edit": "Edit"
+  },
   "angular-lib": {
     "title": "Angular Spp"
   },
@@ -8,14 +15,18 @@
     "logout": "Log out",
     "details": "Details",
     "delete": "Delete",
-    "update": "Edit"
+    "update": "Edit",
+    "cancel": "Cancel",
+    "save": "Save"
   },
   "section": {
     "home": "Home",
-    "client-database": "Customer Database",
+    "client-database": "Customer",
+    "account-database": "Account",
+    "bank-database": "Bank",
     "info": "Info",
     "ngrx": "NgRx",
-    "login": "Login section",
+    "login": "Login",
     "help": "Help"
   },
   "home": {
@@ -26,7 +37,8 @@
   },
   "login": {
     "logg-header": "Log in to the bank",
-    "loggedIn": "LOGGED"
+    "loggedIn": "LOGGED",
+    "register-redirect": "If you don't have an account yet, please register"
   },
   "register": {
     "register-header": "Register a bank account",
@@ -42,7 +54,8 @@
   },
   "client": {
     "header": "Customer Database",
-    "to-client": "Customer",
+    "add-client": "Add Customer",
+    "to-client": "Client",
     "name": "First name and last name",
     "first_name": "Name",
     "surname": "Surname",

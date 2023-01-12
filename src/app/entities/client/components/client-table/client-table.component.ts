@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -27,23 +26,20 @@ export class ClientTableComponent implements OnInit {
 
   @Output() updateClientEmitter = new EventEmitter<ClientModel>();
   @Output() deleteClientEmitter = new EventEmitter<number>();
-
-  constructor(private readonly cdRef: ChangeDetectorRef) {
-  }
+  @Output() detailsClientEmitter = new EventEmitter<ClientModel>();
 
   ngOnInit(): void {
-    console.error(this.clients);
   }
 
-  canGetLoan(can_get_loan: string) {
-    return can_get_loan ? 'Tak' : 'Nie';
-  }
-
-  updateClient(client: ClientModel) {
+  updateClient(client: ClientModel): void {
     this.updateClientEmitter.emit(client);
   }
 
-  deleteClient(id: number) {
+  deleteClient(id: number): void {
     this.deleteClientEmitter.emit(id);
+  }
+
+  detailsClient(client: ClientModel): void {
+    this.detailsClientEmitter.emit(client);
   }
 }

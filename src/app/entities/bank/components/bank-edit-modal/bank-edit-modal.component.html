@@ -1,0 +1,30 @@
+<div class="modal-header">
+  <h4>{{(bankModel ? 'header.edit' : 'header.add') | translate}} {{'bank.to-bank'| translate}}</h4>
+  <button class="btn-close" type="button" (click)="onDismiss()"></button>
+</div>
+<div class="modal-body pb-0">
+  <form class="pt-2 ps-5 pe-5">
+    <div class="login-container">
+      <form class="d-flex flex-column align-items-center mb-4" [formGroup]="bankForm">
+        <mat-form-field>
+          <mat-label>{{'bank.name' | translate}}</mat-label>
+          <input autofocus type="text" matInput formControlName="name">
+          <mat-error *ngIf="nameControl.hasError('required')">
+            {{'form.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{'bank.address' | translate}}</mat-label>
+          <input autofocus type="text" matInput formControlName="address">
+          <mat-error *ngIf="addressControl.hasError('required')">
+            {{'form.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+      </form>
+    </div>
+  </form>
+</div>
+<div class="modal-footer justify-content-between">
+  <button mat-stroked-button color="warn" (click)="onDismiss()">{{'button.cancel' | translate}}</button>
+  <button mat-raised-button color="primary" (click)="saveBank()">{{'button.save' | translate}}</button>
+</div>

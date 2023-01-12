@@ -1,4 +1,13 @@
 {
+  "internationalization": "PL/ENG",
+  "author": "Dariusz Dajcz",
+  "angular-dev": "Angular Dev",
+  "yes": "Tak",
+  "no": "Nie",
+  "header": {
+    "add": "Dodaj",
+    "edit": "Edytuj"
+  },
   "angular-lib": {
     "title": "Aplikacja Angular"
   },
@@ -8,14 +17,18 @@
     "logout": "Wyloguj",
     "details": "Szczegóły",
     "delete": "Usuń",
-    "update": "Edytuj"
+    "update": "Edytuj",
+    "cancel": "Anuluj",
+    "save": "Zapisz"
   },
   "section": {
     "home": "Strona Główna",
     "client-database": "Baza Klienta",
+    "account-database": "Baza Kont",
+    "bank-database": "Baza Banków",
     "info": "Info",
     "ngrx": "NgRx",
-    "login": "Sekcja Logowania",
+    "login": "Logowanie",
     "help": "Pomoc"
   },
   "home": {
@@ -26,7 +39,8 @@
   },
   "login": {
     "logg-header": "Zaloguj sie do banku",
-    "loggedIn": "ZALOGOWANY"
+    "loggedIn": "ZALOGOWANY",
+    "register-redirect": "Jeśli nie masz jeszcze konta, zarejestruj się"
   },
   "register": {
     "register-header": "Zarejestruj konto w banku",
@@ -42,6 +56,7 @@
   },
   "client": {
     "header": "Baza Klienta",
+    "add-client": "Dodaj Klienta",
     "to-client": "Klienta",
     "name": "Imie i Nazwisko",
     "first_name": "Imie",

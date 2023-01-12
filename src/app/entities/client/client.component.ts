@@ -8,7 +8,6 @@ import { EditedResponse } from './model/edit-response.model';
 import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
-  selector: 'app-client',
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -26,7 +25,11 @@ export class ClientComponent implements OnInit {
   }
 
   updateClient(client?: ClientModel): void {
-    const modal = ClientEditModalComponent.open(this.modal, client);
+    this.editModal(client);
+  }
+
+  editModal(client?: ClientModel, details = false): void {
+    const modal = ClientEditModalComponent.open(this.modal, client, details);
 
     modal.closed
       .pipe(take(1),
@@ -45,6 +48,10 @@ export class ClientComponent implements OnInit {
       .pipe(take(1),
         filter((res) => res))
       .subscribe({ next: () => this.confirmDeleteClient(deleteId) });
+  }
+
+  detailsClient(client: ClientModel) {
+    this.editModal(client, true);
   }
 
   private confirmDeleteClient(id: number) {

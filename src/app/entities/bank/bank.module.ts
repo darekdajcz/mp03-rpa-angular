@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ClientComponent } from './client.component';
+import { BankComponent } from './bank.component';
 import { RouterModule } from '@angular/router';
-import { clientRoute } from './client.route';
-import { ClientTableComponent } from './components/client-table/client-table.component';
+import { bankRoute } from './bank.route';
+import { BankTableComponent } from './components/client-table/bank-table.component';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../../shared/shared.module';
-import { ClientEditModalComponent } from './components/client-edit-modal/client-edit-modal.component';
+import { BankEditModalComponent } from './components/bank-edit-modal/bank-edit-modal.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -15,12 +15,12 @@ import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
-    ClientComponent,
-    ClientTableComponent,
-    ClientEditModalComponent
+    BankComponent,
+    BankTableComponent,
+    BankEditModalComponent
   ],
     imports: [
-        RouterModule.forChild(clientRoute),
+        RouterModule.forChild(bankRoute),
         CommonModule,
         MatButtonModule,
         SharedModule,
@@ -31,4 +31,4 @@ import { TranslateModule } from '@ngx-translate/core';
         TranslateModule
     ]
 })
-export class ClientModule { }
+export class BankModule { }

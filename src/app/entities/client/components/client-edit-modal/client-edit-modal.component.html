@@ -1,48 +1,48 @@
 <div class="modal-header">
-  <h4>{{clientModel ? 'Edytuj' : 'Dodaj'}} Klienta</h4>
+  <h4>{{(clientModel ? 'header.edit' : 'header.add') | translate}} {{'client.to-client'| translate}}</h4>
   <button class="btn-close" type="button" (click)="onDismiss()"></button>
 </div>
 <div class="modal-body pb-0">
   <form class="pt-2 ps-5 pe-5">
     <div class="login-container">
-        <form class="d-flex flex-column align-items-center mb-4" [formGroup]="clientForm">
-          <mat-form-field>
-            <mat-label>Pesel</mat-label>
-            <input autofocus type="text" matInput formControlName="pesel">
-            <mat-error *ngIf="peselControl.hasError('required')">
-              Pole wymagane
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Imie</mat-label>
-            <input autofocus type="text" matInput formControlName="first_name">
-            <mat-error *ngIf="firstNameControl.hasError('required')">
-              Pole wymagane
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Nazwisko</mat-label>
-            <input autofocus type="text" matInput formControlName="surname">
-            <mat-error *ngIf="surnameControl.hasError('required')">
-              Pole wymagane
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Adres</mat-label>
-            <input autofocus type="text" matInput formControlName="address">
-            <mat-error *ngIf="addressControl.hasError('required')">
-              Pole wymagane
-            </mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Czy może wziąć pożyczke</mat-label>
-            <input autofocus type="text" matInput formControlName="can_get_loan">
-          </mat-form-field>
-        </form>
+      <form class="d-flex flex-column align-items-center mb-4" [formGroup]="clientForm">
+        <mat-form-field>
+          <mat-label>{{'client.pesel' | translate}}</mat-label>
+          <input autofocus type="text" matInput formControlName="pesel">
+          <mat-error *ngIf="peselControl.hasError('required')">
+            {{'form.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{'client.first_name' | translate}}</mat-label>
+          <input autofocus type="text" matInput formControlName="first_name">
+          <mat-error *ngIf="firstNameControl.hasError('required')">
+            {{'form.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{'client.surname' | translate}}</mat-label>
+          <input autofocus type="text" matInput formControlName="surname">
+          <mat-error *ngIf="surnameControl.hasError('required')">
+            {{'form.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{'client.address' | translate}}</mat-label>
+          <input autofocus type="text" matInput formControlName="address">
+          <mat-error *ngIf="addressControl.hasError('required')">
+            {{'form.required' | translate}}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>{{'client.can_get_loan' | translate}}</mat-label>
+          <input autofocus type="text" matInput formControlName="can_get_loan">
+        </mat-form-field>
+      </form>
     </div>
   </form>
 </div>
 <div class="modal-footer justify-content-between">
-  <button mat-stroked-button color="accent" (click)="onDismiss()">Anuluj</button>
-  <button mat-raised-button color="primary" (click)="saveClient()">Zapisz</button>
+  <button mat-stroked-button color="warn" (click)="onDismiss()">{{'button.cancel' | translate}}</button>
+  <button mat-raised-button color="primary" (click)="saveClient()">{{'button.save' | translate}}</button>
 </div>

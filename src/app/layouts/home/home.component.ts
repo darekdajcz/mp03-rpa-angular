@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../../shared/services/token-storage.service';
 import { User } from '../../entities/login/models/user';
-import { FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -12,19 +11,11 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HomeComponent implements OnInit {
 
-  lang = 'pl'
   user: User;
-
-  constructor(private readonly tokenStorageService: TokenStorageService, private readonly fb: FormBuilder,
-              private readonly translateService: TranslateService) {
+  constructor(private readonly tokenStorageService: TokenStorageService, private readonly translateService: TranslateService) {
   }
 
   ngOnInit(): void {
     this.user = this.tokenStorageService.getUser();
-  }
-
-  click(): void {
-      this.lang = this.lang === 'pl' ? 'en' : 'pl'
-      this.translateService.use(this.lang)
   }
 }

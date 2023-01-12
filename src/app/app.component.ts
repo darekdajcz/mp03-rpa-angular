@@ -3,6 +3,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { TokenStorageService } from './shared/services/token-storage.service';
 import { UserRoles } from './entities/login/models/user-roles';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -18,13 +19,15 @@ export class AppComponent implements OnInit {
   private role: UserRoles;
 
   constructor(private readonly router: Router, private readonly cdRef: ChangeDetectorRef,
-              private readonly tokenStorageService: TokenStorageService) {
-    // translate.setDefaultLang('pl');
-    // translate.use('pl');
+              private readonly tokenStorageService: TokenStorageService, private readonly translateService: TranslateService) {
   }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    const lng = this.tokenStorageService.getLang();
+
+    !!lng ? this.translateService.use(lng) : null;
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();

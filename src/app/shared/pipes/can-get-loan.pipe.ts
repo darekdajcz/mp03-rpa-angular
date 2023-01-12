@@ -1,10 +1,15 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { inject, Pipe, PipeTransform } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Pipe({
-  name: 'canGetLoan'
+  name: 'canGetLoan',
+  pure: false
 })
 export class CanGetLoanPipe implements PipeTransform {
+  private readonly translateService = inject(TranslateService);
+
   transform(value: string): string {
-    return +value === 1 ? 'Tak' : 'Nie';
+    const canGetLoan = +value === 1 ? 'yes' : 'no';
+    return this.translateService.instant(canGetLoan);
   }
 }

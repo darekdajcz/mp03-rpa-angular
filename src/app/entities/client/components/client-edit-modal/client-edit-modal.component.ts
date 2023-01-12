@@ -4,13 +4,13 @@ import { ClientModel } from '../../model/client.model';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-client-edit-modal',
   templateUrl: './client-edit-modal.component.html',
   styleUrls: ['./client-edit-modal.component.scss']
 })
 export class ClientEditModalComponent implements OnInit {
 
   clientModel?: ClientModel;
+  details = false;
 
   // TODO --> PESEL VALIDATOR
   clientForm = this.fb.group({
@@ -24,12 +24,13 @@ export class ClientEditModalComponent implements OnInit {
   constructor(private readonly activeModal: NgbActiveModal, private readonly fb: NonNullableFormBuilder) {
   }
 
-  static open(ngbModal: NgbModal, clientModel?: ClientModel): NgbModalRef {
+  static open(ngbModal: NgbModal, clientModel?: ClientModel, details?: boolean): NgbModalRef {
     const modal = ngbModal.open(ClientEditModalComponent, {
       centered: true
     });
 
     modal.componentInstance.clientModel = clientModel;
+    modal.componentInstance.details = details;
 
     return modal;
   }
@@ -72,10 +73,14 @@ export class ClientEditModalComponent implements OnInit {
         can_get_loan: this.clientModel.can_get_loan || ''
       });
     }
+
+    if (this.details) {
+      this.clientForm.disable();
+    }
   }
 
   saveClient() {
-    const client = { ...this.clientForm.getRawValue(), id: this.clientModel?.id} as ClientModel;
+    const client = { ...this.clientForm.getRawValue(), id: this.clientModel?.id } as ClientModel;
 
     this.activeModal.close({ client });
   }

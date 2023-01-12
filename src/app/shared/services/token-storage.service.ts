@@ -4,6 +4,7 @@ import { User } from '../../entities/login/models/user';
 const ACCESS_KEY = 'accessToken';
 const TOKEN_KEY = 'refreshToken';
 const USER_KEY = 'auth-user';
+const LNG_KEY = 'lng';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,17 @@ const USER_KEY = 'auth-user';
 export class TokenStorageService {
 
   signOut(): void {
+    const getLang = this.getLang();
     window.sessionStorage.clear();
+    // this.saveLang(getLang);
+  }
+
+  saveLang(lng: string): void {
+    window.sessionStorage.setItem(LNG_KEY, lng);
+  }
+
+  getLang(): string {
+    return sessionStorage.getItem(LNG_KEY)!;
   }
 
   saveToken(token: string, refreshToken = false): void {
@@ -25,7 +36,7 @@ export class TokenStorageService {
   }
 
   getToken(refreshToken = false): string {
-    return !refreshToken ? sessionStorage.getItem(ACCESS_KEY)! : sessionStorage.getItem(TOKEN_KEY)!
+    return !refreshToken ? sessionStorage.getItem(ACCESS_KEY)! : sessionStorage.getItem(TOKEN_KEY)!;
   }
 
   saveUser(user: User): void {

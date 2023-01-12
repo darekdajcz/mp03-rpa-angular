@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
       }, {
         path: 'client',
         loadChildren: () => import('./client/client.module').then(module => module.ClientModule)
+      }, {
+        path: 'bank',
+        loadChildren: () => import('./bank/bank.module').then(module => module.BankModule)
       }
     ]),
     CommonModule
