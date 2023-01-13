@@ -1,5 +1,6 @@
 <div class="modal-header">
-  <h4>{{(accountModel ? 'header.edit' : 'header.add') | translate}} {{'account.to-account'| translate}}</h4>
+  <h4 *ngIf="!details">{{(accountModel ? 'header.edit' : 'header.add') | translate}} {{'account.to-account'| translate}}</h4>
+  <h4 *ngIf="details">{{'button.details' | translate}}</h4>
   <button class="btn-close" type="button" (click)="onDismiss()"></button>
 </div>
 <div class="modal-body pb-0">
@@ -32,7 +33,7 @@
 
         <mat-form-field appearance="fill">
           <mat-label>{{'account.client_id' | translate}}</mat-label>
-          <select matNativeControl>
+          <select matNativeControl formControlName="client_id">
             <option  *ngFor="let client of clientList" [value]="client.id">
               {{client.first_name}} {{client.surname}}
             </option>
@@ -44,7 +45,7 @@
 
         <mat-form-field appearance="fill">
           <mat-label>{{'account.bank_id' | translate}}</mat-label>
-          <select matNativeControl>
+          <select matNativeControl formControlName="bank_id">
             <option  *ngFor="let bank of bankList" [value]="bank.id">
               {{bank.name}}
             </option>
@@ -57,7 +58,7 @@
     </div>
   </form>
 </div>
-<div class="modal-footer justify-content-between">
+<div *ngIf="!details" class="modal-footer justify-content-between">
   <button mat-stroked-button color="warn" (click)="onDismiss()">{{'button.cancel' | translate}}</button>
   <button mat-raised-button color="primary" (click)="saveAccount()">{{'button.save' | translate}}</button>
 </div>
