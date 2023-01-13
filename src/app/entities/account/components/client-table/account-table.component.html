@@ -14,12 +14,15 @@
     <th scope="row">{{account.account_number}}</th>
     <td>{{account.creation_date}}</td>
     <td>{{account.bonuses | aproove}}</td>
-    <td>{{account.client_id}}</td>
-    <td>{{account.bank_id}}</td>
+    <td>{{account.clientX.first_name}} {{account.clientX.surname}}</td>
+    <td>{{account.bankX.name}}</td>
     <td>
-      <button class="me-3" mat-stroked-button color="primary" (click)="updateClient(account)">{{'button.update' | translate}}</button>
-      <button class="me-3" mat-stroked-button color="warn" (click)="deleteClient(account.id)">{{'button.delete' | translate}}</button>
-      <button class="me-3" mat-stroked-button color="primary" (click)="detailsClient(account)">{{'button.details' | translate}}</button>
+      <button class="me-3" mat-stroked-button color="primary"
+              (click)="updateClient(account)">{{'button.update' | translate}}</button>
+      <button class="me-3" mat-stroked-button color="warn"
+              (click)="deleteClient(account.id)">{{'button.delete' | translate}}</button>
+      <button class="me-3" mat-stroked-button color="primary"
+              (click)="detailsClient(account)">{{'button.details' | translate}}</button>
     </td>
   </tr>
 </table>

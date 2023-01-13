@@ -12,6 +12,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -19,16 +21,18 @@ import { TranslateModule } from '@ngx-translate/core';
     AccountTableComponent,
     AccountEditModalComponent
   ],
-    imports: [
-        RouterModule.forChild(accountRoute),
-        CommonModule,
-        MatButtonModule,
-        SharedModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        TranslateModule
-    ]
+  imports: [
+    RouterModule.forChild(accountRoute),
+    CommonModule,
+    MatButtonModule,
+    SharedModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    MatSelectModule,
+    MatAutocompleteModule
+  ]
 })
 export class AccountModule { }

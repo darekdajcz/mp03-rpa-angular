@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { SERVER_API_URL } from '../../app.constants';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -10,9 +10,7 @@ import { EditedResponse } from '../client/model/edit-response.model';
 })
 export class BankService {
   private resourceUrl = `${ SERVER_API_URL }/api/bank`;
-
-  constructor(private readonly http: HttpClient) {
-  }
+  private readonly http = inject(HttpClient)
 
   getAllBanks = (): Observable<BankModel[]> =>
     this.http.get<BankModel[]>(`${ this.resourceUrl }/all`);
@@ -24,5 +22,5 @@ export class BankService {
     this.http.put<Pick<EditedResponse, 'updated'>>(`${ this.resourceUrl }/update`, req);
 
   deleteBank = (id: number): Observable<Pick<EditedResponse, 'deleted'>> =>
-    this.http.delete<Pick<EditedResponse, 'deleted'>>(`${ this.resourceUrl }/${id}`);
+    this.http.delete<Pick<EditedResponse, 'deleted'>>(`${ this.resourceUrl }/${ id }`);
 }

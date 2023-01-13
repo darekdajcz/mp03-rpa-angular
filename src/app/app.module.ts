@@ -19,6 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { authInterceptorProviders, translateModuleConfig, translateServiceProvider } from './provider.config';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatMenuModule,
     HttpClientModule,
     NgxSpinnerModule,
+    MatAutocompleteModule,
+    MatSelectModule,
     TranslateModule.forRoot(translateModuleConfig)
   ],
   providers: [

@@ -30,22 +30,29 @@
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
           <mat-label>{{'account.client_id' | translate}}</mat-label>
-          <input autofocus type="text" matInput formControlName="client_id">
-          <mat-error *ngIf="clientIdControl.hasError('required')">
+          <select matNativeControl>
+            <option  *ngFor="let client of clientList" [value]="client.id">
+              {{client.first_name}} {{client.surname}}
+            </option>
+          </select>
+          <mat-error *ngIf="clientControl.hasError('required')">
             {{'form.required' | translate}}
           </mat-error>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field appearance="fill">
           <mat-label>{{'account.bank_id' | translate}}</mat-label>
-          <input autofocus type="text" matInput formControlName="bank_id">
-          <mat-error *ngIf="bankIdControl.hasError('required')">
+          <select matNativeControl>
+            <option  *ngFor="let bank of bankList" [value]="bank.id">
+              {{bank.name}}
+            </option>
+          </select>
+          <mat-error *ngIf="bankControl.hasError('required')">
             {{'form.required' | translate}}
           </mat-error>
         </mat-form-field>
-
       </form>
     </div>
   </form>
