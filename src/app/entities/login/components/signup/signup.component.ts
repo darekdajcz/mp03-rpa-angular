@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../../shared/services/auth.service';
 import { UserRoles } from '../../models/user-roles';
-import { RegisterUser } from '../../models/user';
 
 @Component({
   selector: 'app-signup',
@@ -12,6 +11,10 @@ import { RegisterUser } from '../../models/user';
 })
 export class SignupComponent {
   UserRoles = UserRoles;
+
+  // TODO --> admin can aproove registration
+  // TODO --> agent can add account see all lists
+  // TODO --> client can see only his accounts and banks
 
   signUpForm = this.fb.group({
     username: ['', [Validators.required]],

@@ -76,8 +76,8 @@ export class AccountEditModalComponent implements OnInit {
         account_number: this.accountModel.account_number || '',
         creation_date: this.accountModel.creation_date || '',
         bonuses: this.accountModel.bonuses || '',
-        client_id: this.accountModel.clientX.id || 0,
-        bank_id: this.accountModel.bankX.id || 0
+        client_id: this.accountModel.clientX!.id || 0,
+        bank_id: this.accountModel.bankX!.id || 0
       });
     }
 
@@ -87,8 +87,11 @@ export class AccountEditModalComponent implements OnInit {
   }
 
   saveAccount() {
-    // const account = { ...this.accountForm.getRawValue(), id: this.accountModel?.id } as AccountModel;
-    // this.activeModal.close({ account });
+    const account = {
+      ...this.accountForm.getRawValue(),
+      id: this.accountModel?.id
+    } as unknown as AccountModel;
+    this.activeModal.close({ account });
   }
 
   private getDictionaryList() {
