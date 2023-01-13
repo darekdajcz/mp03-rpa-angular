@@ -1,5 +1,10 @@
-.main>h2{
+.main > h2 {
   text-align: center;
+}
+
+.table-header > th {
+  background: var(--dark-primary);
+  color: white;
 }
 
 .table,

@@ -15,6 +15,7 @@ body {
   --light-green: #a59f83;
   --light-blue: #a19bf2;
   --primary: #607d8b;
+  --dark-primary: #455a64
 }
 
 /* You can add global styles to this file, and also import other style files */
@@ -80,6 +81,11 @@ body {
   min-height: calc(100vh - 100px);
   font-size: 1.25rem;
   color: #37507ED1;
+}
+
+.background {
+  @extend .login-background;
+  background-image: url('/assets/image/background.png');
 }
 
 .btn-close {
