@@ -10,7 +10,7 @@ import { AccountModel } from '../../model/account.model';
 @Component({
   selector: 'app-account-table',
   templateUrl: './account-table.component.html',
-  styleUrls: ['./account-table.component.scss'],
+  styleUrls: ['../../../bank/components/bank-table/bank-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccountTableComponent {

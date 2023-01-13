@@ -9,9 +9,9 @@ import {
 import { ClientModel } from '../../model/client.model';
 
 @Component({
-  selector: 'app-client-table',
+  selector: 'app-bank-table',
   templateUrl: './client-table.component.html',
-  styleUrls: ['./client-table.component.scss'],
+  styleUrls: ['../../../bank/components/bank-table/bank-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClientTableComponent implements OnInit {

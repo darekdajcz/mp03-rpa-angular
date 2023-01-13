@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BankComponent } from './bank.component';
 import { RouterModule } from '@angular/router';
 import { bankRoute } from './bank.route';
-import { BankTableComponent } from './components/client-table/bank-table.component';
+import { BankTableComponent } from './components/bank-table/bank-table.component';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../../shared/shared.module';
 import { BankEditModalComponent } from './components/bank-edit-modal/bank-edit-modal.component';

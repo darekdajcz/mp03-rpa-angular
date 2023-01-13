@@ -5,7 +5,7 @@ import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms'
 
 @Component({
   templateUrl: './account-edit-modal.component.html',
-  styleUrls: ['./account-edit-modal.component.scss']
+  styleUrls: ['../../../bank/components/bank-edit-modal/bank-edit-modal.component.scss']
 })
 export class AccountEditModalComponent implements OnInit {
 
