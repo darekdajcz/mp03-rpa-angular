@@ -42,7 +42,7 @@ export class ClientComponent implements OnInit {
 
     const deleteId = $event;
 
-    const modal = ConfirmDialogComponent.open(this.modal, 'Czy na pewno chcesz usunąć tego klienta?');
+    const modal = ConfirmDialogComponent.open(this.modal, 'cancel.client');
 
     modal.closed
       .pipe(take(1),

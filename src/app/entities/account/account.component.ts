@@ -41,7 +41,7 @@ export class AccountComponent implements OnInit {
 
     const deleteId = $event;
 
-    const modal = ConfirmDialogComponent.open(this.modal, 'Czy na pewno chcesz usunąć tego klienta?');
+    const modal = ConfirmDialogComponent.open(this.modal, 'cancel.account');
 
     modal.closed
       .pipe(take(1),

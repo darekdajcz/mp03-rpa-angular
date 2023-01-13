@@ -9,7 +9,7 @@ import {
 import { ClientModel } from '../../model/client.model';
 
 @Component({
-  selector: 'app-bank-table',
+  selector: 'app-client-table',
   templateUrl: './client-table.component.html',
   styleUrls: ['../../../bank/components/bank-table/bank-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

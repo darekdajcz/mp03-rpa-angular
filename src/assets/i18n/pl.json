@@ -9,6 +9,11 @@
     "add": "Dodaj",
     "edit": "Edytuj"
   },
+  "cancel": {
+    "bank": "Czy na pewno chcesz usunąć ten bank?",
+    "account": "Czy na pewno chcesz usunąć to konto?",
+    "client": "Czy na pewno chcesz usunąć tego klienta?"
+  },
   "angular-lib": {
     "title": "Aplikacja Angular"
   },
