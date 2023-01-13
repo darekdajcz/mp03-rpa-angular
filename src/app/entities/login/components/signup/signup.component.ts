@@ -15,6 +15,7 @@ export class SignupComponent {
   // TODO --> admin can aproove registration
   // TODO --> agent can add account see all lists
   // TODO --> client can see only his accounts and banks
+  // TODO --> messages interceptor
 
   signUpForm = this.fb.group({
     username: ['', [Validators.required]],
