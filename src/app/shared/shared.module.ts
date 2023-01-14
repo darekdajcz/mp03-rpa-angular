@@ -6,6 +6,8 @@ import { fontAwesomeIco } from './font-awesome-icons/font-awesome-icons';
 import { AproovePipe } from './pipes/aproove.pipe';
 import { ConfirmDialogModule } from './components/confirm-dialog/confirm-dialog.module';
 import { AlertMessagesComponent } from './components/alert-messages/alert-messages.component';
+import { MatIconModule } from '@angular/material/icon';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -13,11 +15,14 @@ import { AlertMessagesComponent } from './components/alert-messages/alert-messag
     AlertMessagesComponent
   ],
   exports: [
-    AproovePipe
+    AproovePipe,
+    AlertMessagesComponent
   ],
   imports: [
     CommonModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    MatIconModule,
+    TranslateModule
   ]
 })
 export class SharedModule {

@@ -3,13 +3,14 @@ import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AlertMessagesService } from '../../services/alert-messages.service';
 import { Alert, AlertType } from './alert.model';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { ALERT_MESSAGES_TIMEOUT } from '../../../app.constants';
 
 @UntilDestroy()
 @Component({
   selector: 'app-alert-messages',
   templateUrl: 'alert-messages.component.html',
-  styleUrls: ['alert-messages.scss'],
+  styleUrls: ['alert-messages.component.scss'],
   animations: []
 })
 export class AlertMessagesComponent implements OnInit {
@@ -25,8 +26,7 @@ export class AlertMessagesComponent implements OnInit {
   routeSubscription!: Subscription;
   hovered = false;
 
-  constructor(private readonly router: Router, private readonly alertMessagesService: AlertMessagesService,
-              private readonly ngbModal: NgbModal) {
+  constructor(private readonly router: Router, private readonly alertMessagesService: AlertMessagesService) {
   }
 
   ngOnInit(): void {
@@ -47,10 +47,9 @@ export class AlertMessagesComponent implements OnInit {
         // add alert to array
         this.alerts.push(alert);
 
-        const autoClose = alert.objectType === ObjectMessageType.ruleStackMessage;
         // auto close alert if required
         if (alert.autoClose) {
-          setTimeout(() => !this.hovered && !autoClose ? this.removeAlert(alert) : '', ALERT_MESSAGES_TIMEOUT);
+          setTimeout(() => !this.hovered ? this.removeAlert(alert) : '', ALERT_MESSAGES_TIMEOUT);
         }
       });
 
@@ -86,7 +85,7 @@ export class AlertMessagesComponent implements OnInit {
       [AlertType.Warning]: 'alert alert-warning'
     };
 
-    classes.push(alertTypeClass[alert.type]);
+    classes.push(alertTypeClass[AlertType.Success]);
 
     return classes.join(' ');
   }
@@ -99,11 +98,4 @@ export class AlertMessagesComponent implements OnInit {
     this.hovered = false;
   }
 
-  openCheckDetailsModal(alert: Alert): void {
-    MessageDetailsModalComponent.open(this.ngbModal, alert.ruleStack);
-  }
-
-  isDetailsAvailable(alert: Alert): boolean {
-    return alert.ruleStack?.objectType === ObjectMessageType.ruleStackMessage;
-  }
 }

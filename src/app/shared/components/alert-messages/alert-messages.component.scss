@@ -3,7 +3,7 @@
   position: fixed;
   bottom: 45px;
   right: 20px;
-  z-index: 9999;
+  z-index: 99991;
 }
 
 /* ==========================================================================
@@ -22,7 +22,7 @@ global alerts
 }
 
 .alert-info {
-  background-color: var(--status-info-color);
+  background-color: var(--light-blue);
 
 }
 
@@ -43,6 +43,7 @@ global alerts
   color: #ffffff;
   font-size: 15px;
   opacity: 1;
+  cursor: pointer;
 }
 
 .check-details {

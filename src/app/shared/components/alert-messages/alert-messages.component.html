@@ -1,11 +1,11 @@
 <div class="alerts">
   <div *ngFor="let alert of alerts">
-    <div @opacity class="{{cssClass(alert)}}"
+    <div class="{{cssClass(alert)}}"
          #alertBox (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
       <a class="close" (click)="removeAlert(alert)">
-        <fa-icon [icon]="['far','times-circle']" class="close-icon"></fa-icon>
+        x
       </a>
-      <div [innerHTML]="alert.message"></div>
+      <div>{{alert.message | translate}}</div>
     </div>
   </div>
 </div>
