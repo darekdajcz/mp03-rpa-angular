@@ -1,4 +1,4 @@
-## Mp03 --> npm start
+## AngularApp --> npm start
 
 ## page sections example
 ![img.png](src/assets/image/img.png)
