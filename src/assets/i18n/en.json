@@ -3,8 +3,8 @@
   "yes": "Yes",
   "no": "No",
   "loading": "Loading...",
-  "ROLE_USER": "Klient",
-  "ROLE_AGENT": "Client",
+  "ROLE_USER": "Client",
+  "ROLE_AGENT": "Agent",
   "ROLE_ADMIN": "Administrator",
   "header": {
     "add": "Add",
