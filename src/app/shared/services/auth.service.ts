@@ -28,6 +28,6 @@ export class AuthService {
     const req = {
       username: user.username, email: user.email, password: user.password, role: user.role
     };
-    return this.http.post(`${ this.resourceUrl }/sign-up`, req);
+    return this.http.post(`${ this.resourceUrl }/register`, req);
   }
 }

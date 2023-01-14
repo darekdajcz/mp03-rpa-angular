@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../../shared/services/auth.service';
 import { UserRoles } from '../../models/user-roles';
+import { RegisterUser } from '../../models/user';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,6 @@ export class SignupComponent {
   // TODO --> admin can aproove registration
   // TODO --> agent can add account see all lists
   // TODO --> client can see only his accounts and banks
-  // TODO --> messages interceptor
 
   signUpForm = this.fb.group({
     username: ['', [Validators.required]],
@@ -40,12 +40,7 @@ export class SignupComponent {
   }
 
   onSubmit() {
-    this.check();
-    // const registerUser = { ...this.signUpForm.value } as RegisterUser;
-    // this.authService.register(registerUser).subscribe();
-  }
-
-  check() {
-    this.authService.getAllUsers().subscribe();
+    const registerUser = { ...this.signUpForm.value } as RegisterUser;
+    this.authService.register(registerUser).subscribe();
   }
 }

@@ -10,8 +10,7 @@ import { ALERT_MESSAGES_TIMEOUT } from '../../../app.constants';
 @Component({
   selector: 'app-alert-messages',
   templateUrl: 'alert-messages.component.html',
-  styleUrls: ['alert-messages.component.scss'],
-  animations: []
+  styleUrls: ['alert-messages.component.scss']
 })
 export class AlertMessagesComponent implements OnInit {
 
@@ -48,9 +47,7 @@ export class AlertMessagesComponent implements OnInit {
         this.alerts.push(alert);
 
         // auto close alert if required
-        if (alert.autoClose) {
-          setTimeout(() => !this.hovered ? this.removeAlert(alert) : '', ALERT_MESSAGES_TIMEOUT);
-        }
+          setTimeout(() => !this.hovered ? this.removeAlert(alert) : '', 400);
       });
 
     // clear alerts on location change
@@ -85,7 +82,7 @@ export class AlertMessagesComponent implements OnInit {
       [AlertType.Warning]: 'alert alert-warning'
     };
 
-    classes.push(alertTypeClass[AlertType.Success]);
+    classes.push(alertTypeClass[alert.type]);
 
     return classes.join(' ');
   }
@@ -97,5 +94,4 @@ export class AlertMessagesComponent implements OnInit {
   onMouseOut(): void {
     this.hovered = false;
   }
-
 }

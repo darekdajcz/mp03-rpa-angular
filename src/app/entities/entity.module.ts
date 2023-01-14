@@ -18,6 +18,9 @@ import { RouterModule } from '@angular/router';
       }, {
         path: 'account',
         loadChildren: () => import('./account/account.module').then(module => module.AccountModule)
+      }, {
+        path: 'info',
+        loadChildren: () => import('./info/info.module').then(module => module.InfoModule)
       }
     ]),
     CommonModule

@@ -4,6 +4,9 @@
   "angular-dev": "Angular Dev",
   "yes": "Tak",
   "no": "Nie",
+  "ROLE_USER": "Klient",
+  "ROLE_AGENT": "Agent",
+  "ROLE_ADMIN": "Administrator",
   "loading": "Ładowanie...",
   "header": {
     "add": "Dodaj",
@@ -73,7 +76,10 @@
     "address": "Adres",
     "pesel": "Pesel",
     "can_get_loan": "Czy może wziąć pożyczkę",
-    "details": "Szczegóły"
+    "details": "Szczegóły",
+    "created": "Pomyślnie utworzono klienta!",
+    "updated": "Pomyślnie zaktualizowano klienta!",
+    "deleted": "Pomyślnie usunięto klienta!"
   },
   "bank": {
     "header": "Baza Banku",
@@ -81,7 +87,10 @@
     "to-bank": "Banku",
     "name": "Nazwa Banku",
     "address": "Adres",
-    "details": "Szczegóły"
+    "details": "Szczegóły",
+    "created": "Pomyślnie utworzono bank!",
+    "updated": "Pomyślnie zaktualizowano bank!",
+    "deleted": "Pomyślnie usunięto bank!"
   },
   "account": {
     "header": "Baza Kont",
@@ -92,6 +101,9 @@
     "bonuses": "Bonusy",
     "client_id": "Klient",
     "bank_id": "Bank",
-    "details": "Szczegóły"
+    "details": "Szczegóły",
+    "created": "Pomyślnie utworzono nowe konto!",
+    "updated": "Pomyślnie zaktualizowano konto!",
+    "deleted": "Pomyślnie usunięto konto!"
   }
 }

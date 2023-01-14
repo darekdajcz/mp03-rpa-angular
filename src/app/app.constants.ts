@@ -2,7 +2,7 @@ import { environment } from '../environments/environment';
 import { HttpHeaders } from '@angular/common/http';
 
 export const DELAY_TIMEOUT = 500
-export const ALERT_MESSAGES_TIMEOUT = 8000
+export const ALERT_MESSAGES_TIMEOUT = 300
 
 export const ANGULAR_MAT_DATE_FORMATS = {
   parse: {

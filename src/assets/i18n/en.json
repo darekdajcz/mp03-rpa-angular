@@ -3,6 +3,9 @@
   "yes": "Yes",
   "no": "No",
   "loading": "Loading...",
+  "ROLE_USER": "Klient",
+  "ROLE_AGENT": "Client",
+  "ROLE_ADMIN": "Administrator",
   "header": {
     "add": "Add",
     "edit": "Edit"
@@ -71,7 +74,10 @@
     "address": "Address",
     "pesel": "Pesel",
     "can_get_loan": "Can get a loan?",
-    "details": "Details"
+    "details": "Details",
+    "created": "Client created successfully!",
+    "updated": "Client updated successfully!",
+    "deleted": "Client deleted successfully!"
   },
   "bank": {
     "header": "Bank Database",
@@ -79,7 +85,10 @@
     "to-bank": "Bank",
     "name": "Name of the bank",
     "address": "Address",
-    "details": "Details"
+    "details": "Details",
+    "created": "Bank created successfully!",
+    "updated": "Bank updated successfully!",
+    "deleted": "Bank deleted successfully!"
   },
   "account": {
     "header": "Account Database",
@@ -90,6 +99,9 @@
     "bonuses": "Bonuses",
     "client_id": "Client",
     "bank_id": "Bank",
-    "details": "Details"
+    "details": "Details",
+    "created": "Account created successfully!",
+    "updated": "Account updated successfully!",
+    "deleted": "Account deleted successfully!"
   }
 }

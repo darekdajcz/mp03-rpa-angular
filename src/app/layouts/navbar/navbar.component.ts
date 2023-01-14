@@ -27,18 +27,14 @@ export class NavbarComponent implements OnInit {
   }
 
   internationalization(): void {
-    this.alertMessagesService.error('xxx')
+    this.spinner.show().then(() => {
 
+      this.lang = this.lang === 'pl' ? 'en' : 'pl';
 
-    // this.spinner.show().then(() => {
-    //
-    //   this.lang = this.lang === 'pl' ? 'en' : 'pl';
-    //
-    //   this.tokenStorageService.saveLang(this.lang);
-    //
-    //   this.translateService.use(this.lang);
-    // }).then(()=> setTimeout(()=> this.spinner.hide(), DELAY_TIMEOUT));
+      this.tokenStorageService.saveLang(this.lang);
 
+      this.translateService.use(this.lang);
+    }).then(()=> setTimeout(()=> this.spinner.hide(), DELAY_TIMEOUT));
   }
 
 }
