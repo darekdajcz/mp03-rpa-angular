@@ -5,7 +5,8 @@
 <div class="modal-body pb-0">
   <form class="pt-2 ps-5 pe-5">
     <div class="login-container">
-      <form class="d-flex flex-column align-items-center mb-4" [formGroup]="bankForm">
+      <form class="d-flex align-items-center mb-4"
+            [ngClass]="" [formGroup]="bankForm">
         <mat-form-field>
           <mat-label>{{'bank.name' | translate}}</mat-label>
           <input autofocus type="text" matInput formControlName="name">

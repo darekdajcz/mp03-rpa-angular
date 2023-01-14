@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { MatMenuModule } from '@angular/material/menu';
 import { EntityModule } from './entities/entity.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -21,6 +21,8 @@ import { authInterceptorProviders, translateModuleConfig, translateServiceProvid
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MessagesHandlerInterceptor } from './blocks/messages-handler.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,10 +48,17 @@ import { MatSelectModule } from '@angular/material/select';
     NgxSpinnerModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatTooltipModule,
     TranslateModule.forRoot(translateModuleConfig)
   ],
   providers: [
-    authInterceptorProviders, translateServiceProvider
+    authInterceptorProviders,
+    translateServiceProvider,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MessagesHandlerInterceptor,
+      multi: true
+    },
   ],
   bootstrap: [AppComponent]
 })

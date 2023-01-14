@@ -5,10 +5,12 @@ import locales from '@angular/common/locales/pl';
 import { fontAwesomeIco } from './font-awesome-icons/font-awesome-icons';
 import { AproovePipe } from './pipes/aproove.pipe';
 import { ConfirmDialogModule } from './components/confirm-dialog/confirm-dialog.module';
+import { AlertMessagesComponent } from './components/alert-messages/alert-messages.component';
 
 @NgModule({
   declarations: [
-    AproovePipe
+    AproovePipe,
+    AlertMessagesComponent
   ],
   exports: [
     AproovePipe

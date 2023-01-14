@@ -1,0 +1,11 @@
+<div class="alerts">
+  <div *ngFor="let alert of alerts">
+    <div @opacity class="{{cssClass(alert)}}"
+         #alertBox (mouseover)="onMouseOver()" (mouseout)="onMouseOut()">
+      <a class="close" (click)="removeAlert(alert)">
+        <fa-icon [icon]="['far','times-circle']" class="close-icon"></fa-icon>
+      </a>
+      <div [innerHTML]="alert.message"></div>
+    </div>
+  </div>
+</div>

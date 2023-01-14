@@ -31,7 +31,9 @@ export class AccountEditModalComponent implements OnInit {
   }
 
   static open(ngbModal: NgbModal, accountModel?: AccountModel, details?: boolean): NgbModalRef {
+    const size = details ? 'lg' : '';
     const modal = ngbModal.open(AccountEditModalComponent, {
+      size: size,
       centered: true
     });
 
@@ -64,6 +66,14 @@ export class AccountEditModalComponent implements OnInit {
   ngOnInit(): void {
     this.initForm();
     this.getDictionaryList();
+  }
+
+  getClient(): ClientModel {
+    return this.accountModel!.clientX!
+  }
+
+  getBank(): BankModel {
+    return this.accountModel!.bankX!
   }
 
   onDismiss(): void {

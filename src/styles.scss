@@ -30,6 +30,14 @@ body {
   color: #37507ED1 !important;
 }
 
+.color-primary {
+  color: var(--dark-primary);
+}
+
+.color-gray {
+  color: var(--gray);
+}
+
 .mat-form-field-ripple {
   background-color: #37507ED1 !important;
 }

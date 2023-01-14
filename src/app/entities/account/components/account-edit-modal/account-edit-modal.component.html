@@ -1,59 +1,110 @@
 <div class="modal-header">
-  <h4 *ngIf="!details">{{(accountModel ? 'header.edit' : 'header.add') | translate}} {{'account.to-account'| translate}}</h4>
+  <h4
+    *ngIf="!details">{{(accountModel ? 'header.edit' : 'header.add') | translate}} {{'account.to-account'| translate}}</h4>
   <h4 *ngIf="details">{{'button.details' | translate}}</h4>
   <button class="btn-close" type="button" (click)="onDismiss()"></button>
 </div>
 <div class="modal-body pb-0">
   <form class="pt-2 ps-5 pe-5">
     <div class="login-container">
-      <form class="d-flex flex-column align-items-center mb-4" [formGroup]="accountForm">
-        <mat-form-field>
-          <mat-label>{{'account.account_number' | translate}}</mat-label>
-          <input autofocus type="text" matInput formControlName="account_number">
-          <mat-error *ngIf="accountNumberControl.hasError('required')">
-            {{'form.required' | translate}}
-          </mat-error>
-        </mat-form-field>
+      <form class="d-flex mb-4"
+            [ngClass]="{'flex-column': !details}" [formGroup]="accountForm">
+        <div [ngClass]="{'details': details}">
+          <mat-form-field>
+            <mat-label>{{'account.account_number' | translate}}</mat-label>
+            <input autofocus type="text" matInput formControlName="account_number">
+            <mat-error *ngIf="accountNumberControl.hasError('required')">
+              {{'form.required' | translate}}
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>{{'account.creation_date' | translate}}</mat-label>
-          <input autofocus type="text" matInput formControlName="creation_date">
-          <mat-error *ngIf="creationDateControl.hasError('required')">
-            {{'form.required' | translate}}
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{'account.creation_date' | translate}}</mat-label>
+            <input autofocus type="text" matInput formControlName="creation_date">
+            <mat-error *ngIf="creationDateControl.hasError('required')">
+              {{'form.required' | translate}}
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>{{'account.bonuses' | translate}}</mat-label>
-          <input autofocus type="text" matInput formControlName="bonuses">
-          <mat-error *ngIf="bonusesControl.hasError('required')">
-            {{'form.required' | translate}}
-          </mat-error>
-        </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{'account.bonuses' | translate}}</mat-label>
+            <input autofocus type="text" matInput formControlName="bonuses">
+            <mat-error *ngIf="bonusesControl.hasError('required')">
+              {{'form.required' | translate}}
+            </mat-error>
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>{{'account.client_id' | translate}}</mat-label>
-          <select matNativeControl formControlName="client_id">
-            <option  *ngFor="let client of clientList" [value]="client.id">
-              {{client.first_name}} {{client.surname}}
-            </option>
-          </select>
-          <mat-error *ngIf="clientControl.hasError('required')">
-            {{'form.required' | translate}}
-          </mat-error>
-        </mat-form-field>
+          <ng-container *ngIf="!details">
+            <mat-form-field appearance="fill">
+              <mat-label>{{'account.client_id' | translate}}</mat-label>
+              <select matNativeControl formControlName="client_id">
+                <option *ngFor="let client of clientList" [value]="client.id">
+                  {{client.first_name}} {{client.surname}}
+                </option>
+              </select>
+              <mat-error *ngIf="clientControl.hasError('required')">
+                {{'form.required' | translate}}
+              </mat-error>
+            </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>{{'account.bank_id' | translate}}</mat-label>
-          <select matNativeControl formControlName="bank_id">
-            <option  *ngFor="let bank of bankList" [value]="bank.id">
-              {{bank.name}}
-            </option>
-          </select>
-          <mat-error *ngIf="bankControl.hasError('required')">
-            {{'form.required' | translate}}
-          </mat-error>
-        </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>{{'account.bank_id' | translate}}</mat-label>
+              <select matNativeControl formControlName="bank_id">
+                <option *ngFor="let bank of bankList" [value]="bank.id">
+                  {{bank.name}}
+                </option>
+              </select>
+              <mat-error *ngIf="bankControl.hasError('required')">
+                {{'form.required' | translate}}
+              </mat-error>
+            </mat-form-field>
+          </ng-container>
+        </div>
+
+
+        <div *ngIf="details" class="ms-3">
+          <ng-container *ngIf="getClient() as clientX">
+            <mat-form-field appearance="fill">
+              <mat-label>{{'account.client_id' | translate}}</mat-label>
+              <select matNativeControl formControlName="client_id">
+                <option *ngFor="let client of clientList" [value]="client.id">
+                  {{client.first_name}} {{client.surname}}
+                </option>
+              </select>
+              <mat-error *ngIf="clientControl.hasError('required')">
+                {{'form.required' | translate}}
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>{{'client.pesel' | translate}}</mat-label>
+              <input matInput [value]="clientX.pesel" disabled="true">
+            </mat-form-field>
+
+            <div class="d-flex flex-column">
+              <div class="color-gray">
+                {{'client.address' | translate}}:
+              </div>
+              <strong class="color-primary">{{clientX.address}} </strong>
+            </div>
+
+          </ng-container>
+        </div>
+
+        <div *ngIf="details" class="ms-3">
+          <ng-container *ngIf="getBank() as bankX">
+            <mat-form-field appearance="fill">
+              <mat-label>{{'bank.name' | translate}}</mat-label>
+              <input matInput [value]="bankX.name" disabled="true">
+            </mat-form-field>
+            <div class="d-flex flex-column">
+              <div class="color-gray">
+                {{'bank.address' | translate}}:
+              </div>
+              <strong class="color-primary">{{bankX.address}} </strong>
+            </div>
+          </ng-container>
+        </div>
+
       </form>
     </div>
   </form>
