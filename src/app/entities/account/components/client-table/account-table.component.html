@@ -6,7 +6,7 @@
     <th scope="col">{{'account.bonuses' | translate}}</th>
     <th scope="col">{{'account.client_id' | translate}}</th>
     <th scope="col">{{'account.bank_id' | translate}}</th>
-    <th scope="col">{{'account.details' | translate}}</th>
+    <th *ngIf="canEdit" scope="col">{{'account.details' | translate}}</th>
   </tr>
   </thead>
   <tbody>
@@ -16,7 +16,7 @@
     <td>{{account.bonuses | aproove}}</td>
     <td>{{account.clientX!.first_name}} {{account.clientX!.surname}}</td>
     <td>{{account.bankX!.name}}</td>
-    <td>
+    <td *ngIf="canEdit">
       <button class="me-3" mat-stroked-button color="primary"
               (click)="updateClient(account)">{{'button.update' | translate}}</button>
       <button class="me-3" mat-stroked-button color="warn"

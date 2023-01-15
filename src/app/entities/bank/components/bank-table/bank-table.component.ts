@@ -15,6 +15,8 @@ import { BankModel } from '../../model/bank.model';
 })
 export class BankTableComponent {
   _banks: BankModel[];
+  @Input() canEdit: boolean;
+
   @Input() set banks(value: BankModel[]) {
     this._banks = value;
   };

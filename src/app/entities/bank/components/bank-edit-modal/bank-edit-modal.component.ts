@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { BankModel } from '../../model/bank.model';
 import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { TokenStorageService } from '../../../../shared/services/token-storage.service';
+import { UserRoles } from '../../../login/models/user-roles';
 
 @Component({
   templateUrl: './bank-edit-modal.component.html',
@@ -51,7 +53,7 @@ export class BankEditModalComponent implements OnInit {
     if (this.bankModel) {
       this.bankForm.patchValue({
         name: this.bankModel.name || '',
-        address: this.bankModel.address || '',
+        address: this.bankModel.address || ''
       });
     }
 

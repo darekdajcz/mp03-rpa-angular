@@ -33,6 +33,7 @@ export class AlertMessagesComponent implements OnInit {
     this.alertSubscription = this.alertMessagesService.onAlert(this.id)
       .pipe(untilDestroyed(this))
       .subscribe(alert => {
+        console.log(alert)
         // clear alerts when an empty alert is received
         if (!alert.message) {
           // filter out alerts without 'keepAfterRouteChange' flag
@@ -47,7 +48,6 @@ export class AlertMessagesComponent implements OnInit {
         this.alerts.push(alert);
 
         // auto close alert if required
-          setTimeout(() => !this.hovered ? this.removeAlert(alert) : '', 400);
       });
 
     // clear alerts on location change

@@ -6,6 +6,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { BankEditModalComponent } from './components/bank-edit-modal/bank-edit-modal.component';
 import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 import { EditedResponse } from '../client/model/edit-response.model';
+import { UserRoles } from '../login/models/user-roles';
+import { TokenStorageService } from '../../shared/services/token-storage.service';
 
 @Component({
   templateUrl: './bank.component.html',
@@ -17,7 +19,7 @@ export class BankComponent implements OnInit {
   banks: BankModel[];
 
   constructor(private readonly bankService: BankService, private readonly cdRef: ChangeDetectorRef,
-              private readonly modal: NgbModal) {
+              private readonly modal: NgbModal, private readonly tokenService: TokenStorageService) {
   }
 
   ngOnInit(): void {
@@ -37,6 +39,9 @@ export class BankComponent implements OnInit {
       .subscribe({ next: ({ bank }) => this.saveBank(bank) });
   }
 
+  canEdit(): boolean {
+    return this.tokenService.getUser().role !== UserRoles.ROLE_USER;
+  }
 
   deleteBank($event: number) {
 

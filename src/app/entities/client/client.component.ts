@@ -6,6 +6,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ClientEditModalComponent } from './components/client-edit-modal/client-edit-modal.component';
 import { EditedResponse } from './model/edit-response.model';
 import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
+import { UserRoles } from '../login/models/user-roles';
+import { TokenStorageService } from '../../shared/services/token-storage.service';
 
 @Component({
   templateUrl: './client.component.html',
@@ -17,7 +19,7 @@ export class ClientComponent implements OnInit {
   clients: ClientModel[];
 
   constructor(private readonly clientService: ClientService, private readonly cdRef: ChangeDetectorRef,
-              private readonly modal: NgbModal) {
+              private readonly modal: NgbModal, private readonly tokenService: TokenStorageService) {
   }
 
   ngOnInit(): void {
@@ -37,6 +39,9 @@ export class ClientComponent implements OnInit {
       .subscribe({ next: ({ client }) => this.saveClient(client) });
   }
 
+  canEdit(): boolean {
+    return this.tokenService.getUser().role !== UserRoles.ROLE_USER;
+  }
 
   deleteClient($event: number) {
 

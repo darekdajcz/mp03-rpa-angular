@@ -5,7 +5,7 @@
     <th scope="col">{{'client.address' | translate}}</th>
     <th scope="col">{{'client.pesel' | translate}}</th>
     <th scope="col">{{'client.can_get_loan' | translate}}</th>
-    <th scope="col">{{'client.details' | translate}}</th>
+    <th *ngIf="canEdit" scope="col">{{'client.details' | translate}}</th>
   </tr>
   </thead>
   <tbody>
@@ -14,10 +14,13 @@
     <td>{{client.address}}</td>
     <td>{{client.pesel}}</td>
     <td>{{client.can_get_loan | aproove}}</td>
-    <td>
-      <button class="me-3" mat-stroked-button color="primary" (click)="updateClient(client)">{{'button.update' | translate}}</button>
-      <button class="me-3" mat-stroked-button color="warn" (click)="deleteClient(client.id)">{{'button.delete' | translate}}</button>
-      <button class="me-3" mat-stroked-button color="primary" (click)="detailsClient(client)">{{'button.details' | translate}}</button>
+    <td *ngIf="canEdit">
+      <button class="me-3" mat-stroked-button color="primary"
+              (click)="updateClient(client)">{{'button.update' | translate}}</button>
+      <button class="me-3" mat-stroked-button color="warn"
+              (click)="deleteClient(client.id)">{{'button.delete' | translate}}</button>
+      <button class="me-3" mat-stroked-button color="primary"
+              (click)="detailsClient(client)">{{'button.details' | translate}}</button>
     </td>
   </tr>
 </table>

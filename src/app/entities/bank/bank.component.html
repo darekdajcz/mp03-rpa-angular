@@ -1,11 +1,11 @@
 <div class="page background">
   <h1 class="mb-4">{{'bank.header' | translate}}</h1>
-  <button class="mb-2" mat-raised-button color="primary"
+  <button *ngIf="canEdit()" class="mb-2" mat-raised-button color="primary"
           (click)="updateBank()">
     {{'bank.add-bank' | translate}}
   </button>
-  <app-bank-table *ngIf="banks" [banks]="banks"
-                    (updateBankEmitter)="updateBank($event)"
-                    (deleteBankEmitter)="deleteBank($event)"
-                    (detailsBankEmitter)="detailsBank($event)"></app-bank-table>
+  <app-bank-table *ngIf="banks" [banks]="banks" [canEdit]="canEdit()"
+                  (updateBankEmitter)="updateBank($event)"
+                  (deleteBankEmitter)="deleteBank($event)"
+                  (detailsBankEmitter)="detailsBank($event)"></app-bank-table>
 </div>

@@ -1,10 +1,10 @@
 <div class="page background">
   <h1 class="mb-4">{{'client.header' | translate}}</h1>
-  <button class="mb-2" mat-raised-button color="primary"
+  <button *ngIf="canEdit()" class="mb-2" mat-raised-button color="primary"
           (click)="updateClient()">
     {{'client.add-client' | translate}}
   </button>
-  <app-client-table *ngIf="clients" [clients]="clients"
+  <app-client-table *ngIf="clients" [clients]="clients" [canEdit]="canEdit()"
                     (updateClientEmitter)="updateClient($event)"
                     (deleteClientEmitter)="deleteClient($event)"
                     (detailsClientEmitter)="detailsClient($event)"></app-client-table>

@@ -39,8 +39,14 @@ export class SignupComponent {
     return this.signUpForm.controls.password;
   }
 
+  get roleControl(): FormControl<UserRoles> {
+    return this.signUpForm.controls.role;
+  }
+
   onSubmit() {
     const registerUser = { ...this.signUpForm.value } as RegisterUser;
-    this.authService.register(registerUser).subscribe();
+    this.roleControl.value === UserRoles.ROLE_USER
+      ? this.authService.registerStraight(registerUser).subscribe()
+      : this.authService.register(registerUser).subscribe();
   }
 }

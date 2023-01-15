@@ -6,9 +6,27 @@
   "ROLE_USER": "Client",
   "ROLE_AGENT": "Agent",
   "ROLE_ADMIN": "Administrator",
+  "registeredTmp": "Registered user. Wait for admin verifications.",
+  "registeredByAdmin": "User registered successfully.",
+  "wrongPassword": "Wrong password! Try again.",
+  "unauthorized": "There is no such user.",
   "header": {
     "add": "Add",
     "edit": "Edit"
+  },
+  "user": {
+    "title": "Informations",
+    "username": "User nickname ",
+    "email": "User e-mail",
+    "role": "User role"
+  },
+  "admin": {
+    "id": "Id",
+    "username": "Nickname",
+    "email": "E-mail",
+    "role": "User Role",
+    "approve": "Approve",
+    "register": "Are you sure you want to register this user?"
   },
   "cancel": {
     "bank": "Are you sure you want to delete this bank?",
@@ -21,6 +39,7 @@
   "button": {
     "login": "Login",
     "sign-up": "Registration",
+    "register": "Register",
     "logout": "Log out",
     "details": "Details",
     "delete": "Delete",

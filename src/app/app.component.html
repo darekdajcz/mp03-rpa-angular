@@ -1,6 +1,8 @@
 <div class="navbar d-flex justify-content-between p-2">
-  <div class="ms-4" type="button" (click)="toggleSideNav()">
-    <mat-icon>menu</mat-icon>
+  <div>
+    <div *ngIf="isLoggedIn" class="ms-4" type="button" (click)="toggleSideNav()">
+      <mat-icon>menu</mat-icon>
+    </div>
   </div>
   <div class="d-flex">
     <router-outlet name="navbar"></router-outlet>
@@ -8,9 +10,10 @@
       <mat-icon class="icon-display">person_pin</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="redirectTo('login')">{{'button.login' | translate}}</button>
-      <button mat-menu-item (click)="redirectTo('sign-up')">{{'button.sign-up' | translate}}</button>
-      <button mat-menu-item (click)="logout()">{{'button.logout' | translate}}</button>
+      <button *ngIf="!isLoggedIn" mat-menu-item (click)="redirectTo('login')">{{'button.login' | translate}}</button>
+      <button *ngIf="!isLoggedIn" mat-menu-item
+              (click)="redirectTo('sign-up')">{{'button.sign-up' | translate}}</button>
+      <button *ngIf="isLoggedIn" mat-menu-item (click)="logout()">{{'button.logout' | translate}}</button>
     </mat-menu>
   </div>
 </div>
@@ -65,12 +68,12 @@
     <div class="content mat-elevation-z1">
       <app-alert-messages></app-alert-messages>
       <router-outlet></router-outlet>
-            <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#229489" type="ball-fussion"
-                         [fullScreen]="true">
-              <p style="color: #229489">
-                {{'loading' | translate}}
-              </p>
-            </ngx-spinner>
+      <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#229489" type="ball-fussion"
+                   [fullScreen]="true">
+        <p style="color: #229489">
+          {{'loading' | translate}}
+        </p>
+      </ngx-spinner>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

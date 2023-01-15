@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { infoRoute } from './infoRoute';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from '../../shared/shared.module';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SharedModule } from '../../shared/shared.module';
     CommonModule,
     RouterModule.forChild(infoRoute),
     TranslateModule,
-    SharedModule
+    SharedModule,
+    MatButtonModule
   ]
 })
 export class InfoModule { }

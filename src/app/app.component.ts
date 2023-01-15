@@ -14,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   @ViewChild(MatSidenav) sideNav!: MatSidenav;
   opened = false;
-  private isLoggedIn = false;
+  isLoggedIn = false;
   private username: string;
   private role: UserRoles;
 

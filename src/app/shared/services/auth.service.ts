@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { RegisterUser } from '../../entities/login/models/user';
 import { LoginModel } from '../../entities/login/models/login.model';
 import { LoginResponse } from '../../entities/login/models/login.response';
+import { EditedResponse } from '../../entities/client/model/edit-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class AuthService {
     return this.http.get(`${ this.resourceUrl }/all-users`);
   }
 
+  getAllUsersToApprove(): Observable<any> {
+    return this.http.get(`${ this.resourceUrl }/all-users-tmp`);
+  }
+
   logIn(credentials: Pick<LoginModel, 'username' | 'password'>): Observable<LoginResponse> {
     const req = { username: credentials.username, password: credentials.password };
     return this.http.post<LoginResponse>(`${ this.resourceUrl }/login`, req);
@@ -28,6 +33,18 @@ export class AuthService {
     const req = {
       username: user.username, email: user.email, password: user.password, role: user.role
     };
+    return this.http.post(`${ this.resourceUrl }/register-tmp`, req);
+  }
+
+  registerStraight(user: RegisterUser): Observable<any> {
+    const req = {
+      username: user.username, email: user.email, password: user.password, role: user.role
+    };
     return this.http.post(`${ this.resourceUrl }/register`, req);
   }
+
+
+  deleteTmpUser = (id: number): Observable<Pick<EditedResponse, 'deleted'>> =>
+    this.http.delete<Pick<EditedResponse, 'deleted'>>(`${ this.resourceUrl }/${ id }`);
+
 }

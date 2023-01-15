@@ -16,6 +16,8 @@ import { ClientModel } from '../../model/client.model';
 })
 export class ClientTableComponent implements OnInit {
   _clients: ClientModel[];
+  @Input() canEdit: boolean;
+
   @Input() set clients(value: ClientModel[]) {
     this._clients = value;
   };

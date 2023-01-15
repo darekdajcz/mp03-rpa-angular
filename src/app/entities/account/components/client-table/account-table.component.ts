@@ -15,6 +15,8 @@ import { AccountModel } from '../../model/account.model';
 })
 export class AccountTableComponent {
   _accounts: AccountModel[];
+  @Input() canEdit: boolean;
+
   @Input() set accounts(value: AccountModel[]) {
     this._accounts = value;
   };

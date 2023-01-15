@@ -3,14 +3,14 @@
   <tr class="table-header">
     <th scope="col">{{'bank.name' | translate}}</th>
     <th scope="col">{{'bank.address' | translate}}</th>
-    <th scope="col">{{'bank.details' | translate}}</th>
+    <th *ngIf="canEdit" scope="col">{{'bank.details' | translate}}</th>
   </tr>
   </thead>
   <tbody>
   <tr *ngFor="let bank of banks">
     <th scope="row">{{bank.name}}</th>
     <td>{{bank.address}}</td>
-    <td>
+    <td *ngIf="canEdit">
       <button class="me-3" mat-stroked-button color="primary" (click)="updateClient(bank)">{{'button.update' | translate}}</button>
       <button class="me-3" mat-stroked-button color="warn" (click)="deleteClient(bank.id)">{{'button.delete' | translate}}</button>
       <button class="me-3" mat-stroked-button color="primary" (click)="detailsClient(bank)">{{'button.details' | translate}}</button>

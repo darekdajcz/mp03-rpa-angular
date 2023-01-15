@@ -5,7 +5,7 @@
 <div class="modal-body pb-0">
   <form class="pt-2 ps-5 pe-5">
     <div class="login-container">
-      <form class="d-flex align-items-center mb-4"
+      <form class="d-flex flex-column align-items-center mb-4"
             [ngClass]="" [formGroup]="bankForm">
         <mat-form-field>
           <mat-label>{{'bank.name' | translate}}</mat-label>
@@ -27,5 +27,5 @@
 </div>
 <div class="modal-footer justify-content-between">
   <button mat-stroked-button color="warn" (click)="onDismiss()">{{'button.cancel' | translate}}</button>
-  <button mat-raised-button color="primary" (click)="saveBank()">{{'button.save' | translate}}</button>
+  <button mat-raised-button color="primary" [disabled]="bankForm.invalid" (click)="saveBank()">{{'button.save' | translate}}</button>
 </div>

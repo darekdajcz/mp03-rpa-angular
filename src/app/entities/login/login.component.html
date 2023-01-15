@@ -20,7 +20,7 @@
               {{'form.required' | translate}}
             </mat-error>
           </mat-form-field>
-          <button class="text-uppercase" type="submit" mat-raised-button color="primary">{{'button.login' | translate}}</button>
+          <button class="text-uppercase" type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">{{'button.login' | translate}}</button>
         </form>
         <span style="font-size: 15px">{{'login.register-redirect' | translate}}
           <a routerLink='/sign-up'>{{'button.register' | translate}}</a></span>

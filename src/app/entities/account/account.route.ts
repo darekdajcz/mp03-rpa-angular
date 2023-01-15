@@ -1,9 +1,10 @@
 import { AccountComponent } from './account.component';
+import { Routes } from '@angular/router';
 
-export const accountRoute = [
+export const accountRoute: Routes= [
   {
     path: '',
     component: AccountComponent,
-    title: 'Strona główna'
+    title: 'Strona główna',
   }
 ];

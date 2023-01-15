@@ -8,9 +8,27 @@
   "ROLE_AGENT": "Agent",
   "ROLE_ADMIN": "Administrator",
   "loading": "Ładowanie...",
+  "registeredTmp": "Użytkownik zarejestrowany. Poczekaj na weryfikacje administratora.",
+  "registeredByAdmin": "Użytkownik zarejestrowany pomyślnie.",
+  "wrongPassword": "Błędne hasło! Spróbuj ponownie.",
+  "unauthorized": "Nie ma takiego użytkownika.",
   "header": {
     "add": "Dodaj",
     "edit": "Edytuj"
+  },
+  "user": {
+    "title": "Informacje",
+    "username": "Nickname użytkownika",
+    "email": "E-mail użytkownika",
+    "role": "Rola użytkownika"
+  },
+  "admin": {
+    "id": "Id",
+    "username": "Nickname",
+    "email": "E-mail",
+    "role": "Rola użytkownika",
+    "approve": "Zatwierdź",
+    "register": "Czy na pewno chcesz zarejestrować tego użytkownika?"
   },
   "cancel": {
     "bank": "Czy na pewno chcesz usunąć ten bank?",
@@ -23,6 +41,7 @@
   "button": {
     "login": "Zaloguj",
     "sign-up": "Rejestracja",
+    "register": "Rejestracja",
     "logout": "Wyloguj",
     "details": "Szczegóły",
     "delete": "Usuń",

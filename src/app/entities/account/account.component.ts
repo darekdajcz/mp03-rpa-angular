@@ -6,6 +6,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AccountEditModalComponent } from './components/account-edit-modal/account-edit-modal.component';
 import { ConfirmDialogComponent } from '../../shared/components/confirm-dialog/confirm-dialog.component';
 import { EditedResponse } from '../client/model/edit-response.model';
+import { UserRoles } from '../login/models/user-roles';
+import { TokenStorageService } from '../../shared/services/token-storage.service';
 
 @Component({
   templateUrl: './account.component.html',
@@ -16,7 +18,7 @@ export class AccountComponent implements OnInit {
   accounts: AccountModel[];
 
   constructor(private readonly accountService: AccountService, private readonly cdRef: ChangeDetectorRef,
-              private readonly modal: NgbModal) {
+              private readonly modal: NgbModal, private readonly tokenService: TokenStorageService) {
   }
 
   ngOnInit(): void {
@@ -36,6 +38,9 @@ export class AccountComponent implements OnInit {
       .subscribe({ next: ({ account }) => this.saveAccount(account) });
   }
 
+  canEdit(): boolean {
+    return this.tokenService.getUser().role !== UserRoles.ROLE_USER;
+  }
 
   deleteAccount($event: number) {
 

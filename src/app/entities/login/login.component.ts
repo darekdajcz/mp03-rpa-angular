@@ -45,10 +45,12 @@ export class LoginComponent implements OnInit {
       .subscribe({
         next: (res) => {
 
-          this.tokenStorageService.saveToken(res.token.accessToken);
-          this.tokenStorageService.saveToken(res.token.refreshToken, true);
-          this.tokenStorageService.saveUser(res.user);
-          LoginComponent.reloadPage();
+          if(res.token) {
+            this.tokenStorageService.saveToken(res.token.accessToken);
+            this.tokenStorageService.saveToken(res.token.refreshToken, true);
+            this.tokenStorageService.saveUser(res.user);
+            LoginComponent.reloadPage();
+          }
         }
       });
   }
