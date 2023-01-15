@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TranslateModule } from '@ngx-translate/core';
         MatIconModule,
         MatInputModule,
         ReactiveFormsModule,
-        TranslateModule
+        TranslateModule,
+        MatButtonToggleModule
     ]
 })
 export class ClientModule { }

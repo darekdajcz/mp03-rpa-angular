@@ -26,13 +26,16 @@
             </mat-error>
           </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>{{'account.bonuses' | translate}}</mat-label>
-            <input autofocus type="text" matInput formControlName="bonuses">
-            <mat-error *ngIf="bonusesControl.hasError('required')">
-              {{'form.required' | translate}}
-            </mat-error>
-          </mat-form-field>
+          <mat-label>{{'account.bonuses' | translate}}</mat-label>
+          <mat-button-toggle-group class="w-100 mt-1 mb-3" name="fontStyle" aria-label="Font Style"
+                                   formControlName="bonuses">
+            <mat-button-toggle class="w-50" value="0">
+              {{'no' | translate}}
+            </mat-button-toggle>
+            <mat-button-toggle class="w-50" value="1">
+              {{'yes' | translate}}
+            </mat-button-toggle>
+          </mat-button-toggle-group>
 
           <ng-container *ngIf="!details">
             <mat-form-field appearance="fill">
@@ -111,5 +114,5 @@
 </div>
 <div *ngIf="!details" class="modal-footer justify-content-between">
   <button mat-stroked-button color="warn" (click)="onDismiss()">{{'button.cancel' | translate}}</button>
-  <button mat-raised-button color="primary" (click)="saveAccount()">{{'button.save' | translate}}</button>
+  <button mat-raised-button color="primary" (click)="saveAccount()" [disabled]="accountForm.invalid">{{'button.save' | translate}}</button>
 </div>

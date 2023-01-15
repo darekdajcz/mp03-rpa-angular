@@ -6,6 +6,7 @@ export interface User {
   email: string;
   password: string;
   role: UserRoles;
+  approved?: string;
 }
 
 export interface RegisterUser extends User {

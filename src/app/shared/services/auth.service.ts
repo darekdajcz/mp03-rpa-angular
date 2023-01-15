@@ -16,12 +16,12 @@ export class AuthService {
   constructor(private readonly http: HttpClient) {
   }
 
-  getAllUsers(): Observable<any> {
-    return this.http.get(`${ this.resourceUrl }/all-users`);
-  }
+  // getAllUsers(): Observable<any> {
+  //   return this.http.get(`${ this.resourceUrl }/all-users`);
+  // }
 
   getAllUsersToApprove(): Observable<any> {
-    return this.http.get(`${ this.resourceUrl }/all-users-tmp`);
+    return this.http.get(`${ this.resourceUrl }/all-users`);
   }
 
   logIn(credentials: Pick<LoginModel, 'username' | 'password'>): Observable<LoginResponse> {
@@ -31,18 +31,17 @@ export class AuthService {
 
   register(user: RegisterUser): Observable<any> {
     const req = {
-      username: user.username, email: user.email, password: user.password, role: user.role
-    };
-    return this.http.post(`${ this.resourceUrl }/register-tmp`, req);
-  }
-
-  registerStraight(user: RegisterUser): Observable<any> {
-    const req = {
-      username: user.username, email: user.email, password: user.password, role: user.role
+      username: user.username, email: user.email, password: user.password, role: user.role, approved: user.approved
     };
     return this.http.post(`${ this.resourceUrl }/register`, req);
   }
 
+  registerStraight(user: RegisterUser): Observable<any> {
+    const req = { id: user.id,
+      username: user.username, email: user.email, password: user.password, role: user.role, approved: '1'
+    };
+    return this.http.put(`${ this.resourceUrl }/update`, req);
+  }
 
   deleteTmpUser = (id: number): Observable<Pick<EditedResponse, 'deleted'>> =>
     this.http.delete<Pick<EditedResponse, 'deleted'>>(`${ this.resourceUrl }/${ id }`);

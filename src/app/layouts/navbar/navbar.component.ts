@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DELAY_TIMEOUT } from '../../app.constants';
 import { AlertMessagesService } from '../../shared/services/alert-messages.service';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './navbar.component.html',
@@ -15,7 +16,8 @@ export class NavbarComponent implements OnInit {
   lang = 'pl';
 
   constructor(private readonly tokenStorageService: TokenStorageService, private readonly translateService: TranslateService,
-              private readonly spinner: NgxSpinnerService, private readonly alertMessagesService: AlertMessagesService) {
+              private readonly spinner: NgxSpinnerService, private readonly alertMessagesService: AlertMessagesService,
+              private readonly router: Router) {
   }
 
   ngOnInit(): void {
@@ -37,4 +39,7 @@ export class NavbarComponent implements OnInit {
     }).then(()=> setTimeout(()=> this.spinner.hide(), DELAY_TIMEOUT));
   }
 
+  start() {
+    this.router.navigate([''])
+  }
 }

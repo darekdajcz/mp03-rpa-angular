@@ -4,7 +4,7 @@
     <div class="background-color"> {{'user.email' | translate}} : <strong>{{user.email}}</strong></div>
     <div class="background-color"> {{'user.role' | translate}} : <strong>{{user.role | translate}}</strong></div>
     <div *ngIf="user.role === UserRoles.ROLE_ADMIN">
-      <div class="background-color">
+      <div *ngIf="!!usersToApprove.length" class="background-color">
 
         <table class="table">
           <thead>

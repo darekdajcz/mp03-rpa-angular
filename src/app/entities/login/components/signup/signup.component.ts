@@ -3,6 +3,8 @@ import { FormControl, NonNullableFormBuilder, Validators } from '@angular/forms'
 import { AuthService } from '../../../../shared/services/auth.service';
 import { UserRoles } from '../../models/user-roles';
 import { RegisterUser } from '../../models/user';
+import { Router } from '@angular/router';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -24,7 +26,8 @@ export class SignupComponent {
     role: [UserRoles.ROLE_USER, [Validators.required]]
   });
 
-  constructor(private readonly fb: NonNullableFormBuilder, private readonly authService: AuthService) {
+  constructor(private readonly fb: NonNullableFormBuilder, private readonly authService: AuthService,
+              private readonly router: Router) {
   }
 
   get usernameControl(): FormControl<string> {
@@ -44,9 +47,10 @@ export class SignupComponent {
   }
 
   onSubmit() {
-    const registerUser = { ...this.signUpForm.value } as RegisterUser;
-    this.roleControl.value === UserRoles.ROLE_USER
-      ? this.authService.registerStraight(registerUser).subscribe()
-      : this.authService.register(registerUser).subscribe();
+    const approved = this.roleControl.value === UserRoles.ROLE_USER ? '1' : '0';
+    const registerUser = { ...this.signUpForm.value, approved } as RegisterUser;
+    this.authService.register(registerUser)
+      .pipe(finalize(()=> this.router.navigate(['/login'])))
+      .subscribe();
   }
 }

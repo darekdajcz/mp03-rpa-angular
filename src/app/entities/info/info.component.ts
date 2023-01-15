@@ -30,15 +30,15 @@ export class InfoComponent {
         .pipe(finalize(() => this.cdRef.detectChanges()))
         .subscribe({
           next: (res) => {
-            this.usersToApprove = res
-            console.log(this.usersToApprove)
+            this.usersToApprove = res;
+            console.log(this.usersToApprove);
           }
         });
     }
   }
 
   approve(user: User): void {
-    console.error(user)
+    console.error(user);
     const modal = ConfirmDialogComponent.open(this.modal, 'admin.register');
 
     modal.closed
@@ -47,7 +47,12 @@ export class InfoComponent {
       .subscribe({
         next: () =>
           this.authService.registerStraight(user).pipe(switchMap(() =>
-            this.authService.deleteTmpUser(user.id))).subscribe()
+            this.authService.deleteTmpUser(user.id)))
+            .pipe(finalize(() => {
+              this.usersToApprove = this.usersToApprove.filter((res) => res.id === user.id);
+              this.cdRef.detectChanges();
+            }))
+            .subscribe()
       });
   }
 }

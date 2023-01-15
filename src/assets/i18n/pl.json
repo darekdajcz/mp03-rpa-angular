@@ -12,6 +12,7 @@
   "registeredByAdmin": "Użytkownik zarejestrowany pomyślnie.",
   "wrongPassword": "Błędne hasło! Spróbuj ponownie.",
   "unauthorized": "Nie ma takiego użytkownika.",
+  "not-approved": "Brak zatwierdzenia przez administratora. Prosimy o cierpliwość.",
   "header": {
     "add": "Dodaj",
     "edit": "Edytuj"

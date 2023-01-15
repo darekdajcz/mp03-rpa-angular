@@ -10,6 +10,7 @@
   "registeredByAdmin": "User registered successfully.",
   "wrongPassword": "Wrong password! Try again.",
   "unauthorized": "There is no such user.",
+  "not-approved": "No admin approval. Please be patient.",
   "header": {
     "add": "Add",
     "edit": "Edit"
