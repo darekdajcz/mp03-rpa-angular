@@ -20,9 +20,8 @@
 <mat-sidenav-container>
   <mat-sidenav [(opened)]="opened">
 
-    <img class="avatar mat-elevation-z8" [src]="'assets/image/author.png'" alt="dariusz_dajcz"/>
     <h4 class="name">{{'author' | translate}}</h4>
-    <p class="designation">{{'angular-dev' | translate}}</p>
+    <p class="designation">s21522</p>
 
     <mat-divider></mat-divider>
 
@@ -45,10 +44,6 @@
     <button mat-button class="menu-button" (click)="redirectTo('info')">
       <mat-icon>info</mat-icon>
       <span>{{'section.info' | translate}}</span>
-    </button>
-    <button mat-button class="menu-button" (click)="redirectTo('ngrx')">
-      <img class="icon" [src]="'assets/image/ngrx_-removebg.png'" alt="ngrx"/>
-      <span class="ngrx-span">{{'section.ngrx' | translate}}</span>
     </button>
     <button mat-button class="menu-button" (click)="redirectTo('login')">
       <mat-icon>login</mat-icon>
